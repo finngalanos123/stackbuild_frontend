@@ -1,1 +1,27 @@
-<p>register works!</p>
+<mat-horizontal-stepper [linear]="isLinear" labelPosition="bottom" #stepper>
+  <mat-step >
+      <ng-template matStepLabel>Company info</ng-template>
+      <span>Step 1</span>
+  </mat-step>
+  <mat-step>
+      <ng-template matStepLabel>Personal info</ng-template>
+    <span>Step 2</span>
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel>Company details</ng-template>
+    <span>Step 3</span>
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel>Confirmation</ng-template>
+    <span>Step 4</span>
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel>Payment</ng-template>
+    <span>Step 5</span>
+    <p>You are now done.</p>
+    <div>
+      <button mat-button matStepperPrevious>Back</button>
+      <button mat-button (click)="stepper.reset()">Reset</button>
+    </div>
+  </mat-step>
+</mat-horizontal-stepper>

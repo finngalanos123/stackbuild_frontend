@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegisterComponent implements OnInit {
 
+  isLinear = false;
   constructor() { }
 
   ngOnInit(): void {
