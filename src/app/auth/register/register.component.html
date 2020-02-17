@@ -1,28 +1,61 @@
-<mat-horizontal-stepper [linear]="isLinear" labelPosition="bottom" #stepper>
-  <mat-step >
+<form [formGroup]="registrationForm">
+  <mat-horizontal-stepper [linear]="false" labelPosition="bottom" #stepper>
+    <mat-step>
       <ng-template matStepLabel>Company info</ng-template>
-      <span>Step 1</span>
-    <button color="primary" mat-raised-button>OK</button>
-  </mat-step>
-  <mat-step>
+      <div formGroupName="companyInfo">
+        <span>Step 1</span>
+        <mat-form-field>
+
+          <input matInput formControlName="input1">
+        </mat-form-field>
+      </div>
+      <button color="primary" mat-raised-button>OK</button>
+    </mat-step>
+    <mat-step>
       <ng-template matStepLabel>Personal info</ng-template>
-    <span>Step 2</span>
-  </mat-step>
-  <mat-step>
-    <ng-template matStepLabel>Company details</ng-template>
-    <span>Step 3</span>
-  </mat-step>
-  <mat-step>
-    <ng-template matStepLabel>Confirmation</ng-template>
-    <span>Step 4</span>
-  </mat-step>
-  <mat-step>
-    <ng-template matStepLabel>Payment</ng-template>
-    <span>Step 5</span>
-    <p>You are now done.</p>
-    <div>
-      <button mat-button matStepperPrevious>Back</button>
-      <button mat-raised-button (click)="stepper.reset()">Reset</button>
-    </div>
-  </mat-step>
-</mat-horizontal-stepper>
+      <div formGroupName="personalInfo">
+        <span>Step 2</span>
+        <mat-form-field>
+          <input matInput formControlName="input2">
+        </mat-form-field>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>Company details</ng-template>
+      <div formGroupName="companyDetails">
+        <span>Step 3</span>
+        <mat-form-field>
+          <input matInput formControlName="input3">
+        </mat-form-field>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>Confirmation</ng-template>
+      <div formGroupName="confirmation">
+        <span>Step 4</span>
+        <mat-form-field>
+          <input matInput formControlName="input4">
+        </mat-form-field>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>Payment</ng-template>
+      <div formGroupName="payment">
+        <span>Step 5</span>
+        <mat-form-field>
+          <input matInput formControlName="input5">
+        </mat-form-field>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+      <p>You are now done.</p>
+      <div>
+        <button mat-raised-button color="accent" (click)="saveInfo()">Submit</button>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-raised-button (click)="stepper.reset()">Reset</button>
+      </div>
+    </mat-step>
+  </mat-horizontal-stepper>
+</form>
