@@ -1,7 +1,8 @@
 .new-company {
   max-width: 1200px;
   margin: 0 auto;
-  margin-top: 120px;
+  margin-top: 80px;
+  padding: 40px;
   .new-company-title {
     font-size: 24px;
     color: #2F2E33;
@@ -12,8 +13,11 @@
   .new-company-content {
     margin: 0 auto;
     margin-top: 140px;
+    display: flex;
+    justify-content: center;
   }
   .new-company-item {
+    margin-right: 15px;
     border: 1px solid #D0D0D0;
     border-radius: 4px;
     width: 325px;
@@ -22,18 +26,19 @@
     h2 {
       color: #2F2E33;
       font-size: 20px;
-      padding-bottom: 20px;
+      margin-bottom: 20px;
       font-family: 'Ubuntu-Bold';
     }
     p {
       color: #2F2E33;
-      font-size: 25px;
-      padding-bottom: 20px;
+      font-size: 16px;
+      margin-bottom: 20px;
       font-family: 'Ubuntu-Regular';
     }
     .new-company-img {
       text-align: center;
       margin-bottom: 57px;
+      margin-top: 62px;
     }
   }
   .btn-create-company {
@@ -45,5 +50,23 @@
     background: #3B7097;
     color: #fff;
     border-radius: 31px;
+    transition: 0.3s ease-in-out;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+@media(max-width:992px) {
+  .new-company-item {
+    width: 250px;
+    h2 {
+      font-size: 20px;
+      margin-bottom: 20px;
+    }
+    p {
+      font-size: 16px;
+      margin-bottom: 20px;
+    }
   }
 }
