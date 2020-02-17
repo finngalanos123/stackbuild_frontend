@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-new-company',
@@ -7,7 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NewCompanyComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    public router: Router
+  ) {
+  }
 
   ngOnInit(): void {
   }
