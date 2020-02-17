@@ -42,7 +42,8 @@
     .new-company-img {
       text-align: center;
       margin-bottom: 57px;
-      margin-top: 62px;
+      margin-top: 60px;
+      height: 164px;
     }
   }
   .btn-create-company {
@@ -88,7 +89,7 @@
       margin: 0 auto;
       margin-bottom: 30px;
       width: 280px;
-      padding: 15px;
+      padding: 25px;
       h2 {
         font-size: 18px;
         margin-bottom: 15px;
@@ -97,16 +98,6 @@
         font-size: 14px;
         margin-bottom: 15px;
       }
-    }
-  }
-}
-
-@media(max-width:767px) {
-  .new-company {
-    .new-company-content {
-      flex-direction: column;
-      align-content: center;
-      justify-content: center;
     }
   }
 }
@@ -127,6 +118,19 @@
     }
     .new-company-item {
       width: 90%;
+      padding: 15px;
+      height: 335px;
+      .new-company-block {
+        height: 210px;
+      }
+      .new-company-img {
+        margin-bottom: 29px;
+        margin-top: 25px;
+        height: 142px;
+        img {
+          width: 120px;
+        }
+      }
     }
   }
 }
