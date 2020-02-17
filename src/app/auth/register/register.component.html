@@ -9,7 +9,7 @@
           <input matInput formControlName="input1">
         </mat-form-field>
       </div>
-      <button color="primary" mat-raised-button>OK</button>
+      <button color="primary" mat-raised-button matStepperNext>Next</button>
     </mat-step>
     <mat-step>
       <ng-template matStepLabel>Personal info</ng-template>
@@ -18,7 +18,7 @@
         <mat-form-field>
           <input matInput formControlName="input2">
         </mat-form-field>
-        <button mat-button matStepperNext>Next</button>
+        <button mat-raised-button color="primary" matStepperNext>Next</button>
       </div>
     </mat-step>
     <mat-step>
@@ -28,7 +28,7 @@
         <mat-form-field>
           <input matInput formControlName="input3">
         </mat-form-field>
-        <button mat-button matStepperNext>Next</button>
+        <button mat-raised-button  color="primary" matStepperNext>Next</button>
       </div>
     </mat-step>
     <mat-step>
@@ -38,7 +38,7 @@
         <mat-form-field>
           <input matInput formControlName="input4">
         </mat-form-field>
-        <button mat-button matStepperNext>Next</button>
+        <button matStepperNext mat-raised-button color="primary">Next</button>
       </div>
     </mat-step>
     <mat-step>
@@ -48,7 +48,7 @@
         <mat-form-field>
           <input matInput formControlName="input5">
         </mat-form-field>
-        <button mat-button matStepperNext>Next</button>
+        <button matStepperNext mat-raised-button color="primary">Next</button>
       </div>
       <p>You are now done.</p>
       <div>
