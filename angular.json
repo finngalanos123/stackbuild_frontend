@@ -28,7 +28,10 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              {
+                "input": "src/assets/themes/custom.scss"
+              }
             ],
             "scripts": []
           },
@@ -92,8 +95,7 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss",
-              "assets"
+              "src/styles.scss"
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
