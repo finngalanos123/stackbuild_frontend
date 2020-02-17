@@ -28,7 +28,10 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              {
+                "input": "src/assets/themes/custom.scss"
+              }
             ],
             "scripts": []
           },
@@ -93,7 +96,9 @@
             ],
             "styles": [
               "src/styles.scss",
-              "assets"
+              {
+                "input": "src/assets/themes/custom2.scss"
+              }
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
@@ -129,6 +134,7 @@
           }
         }
       }
-    }},
+    }
+  },
   "defaultProject": "frontend"
 }

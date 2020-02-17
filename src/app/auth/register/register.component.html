@@ -2,6 +2,7 @@
   <mat-step >
       <ng-template matStepLabel>Company info</ng-template>
       <span>Step 1</span>
+    <button color="primary" mat-raised-button>OK</button>
   </mat-step>
   <mat-step>
       <ng-template matStepLabel>Personal info</ng-template>
@@ -21,7 +22,7 @@
     <p>You are now done.</p>
     <div>
       <button mat-button matStepperPrevious>Back</button>
-      <button mat-button (click)="stepper.reset()">Reset</button>
+      <button mat-raised-button (click)="stepper.reset()">Reset</button>
     </div>
   </mat-step>
 </mat-horizontal-stepper>
