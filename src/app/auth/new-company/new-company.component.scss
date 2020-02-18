@@ -1,14 +1,11 @@
+@import 'src/assets/styles/mixins';
 .new-company {
   max-width: 1200px;
   margin: 0 auto;
   margin-top: 80px;
   padding: 40px;
   .new-company-title {
-    font-size: 24px;
-    color: #2F2E33;
-    padding-bottom: 25px;
-    font-family: 'Ubuntu-Bold';
-    border-bottom: 1px solid #EEEEEE;
+    @include title-style;
   }
   .new-company-content {
     margin: 0 auto;
@@ -106,10 +103,6 @@
     padding: 10px;
     .new-company-content {
       margin-top: 20px;
-    }
-    .new-company-title {
-      font-size: 20px;
-      padding-bottom: 7px;
     }
     .btn-create-company {
       height: 40px;

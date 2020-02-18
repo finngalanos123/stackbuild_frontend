@@ -1,0 +1,394 @@
+@import 'src/assets/styles/mixins';
+input, div {
+  box-sizing: border-box;
+}
+.register {
+  max-width: 1200px;
+  margin: 0 auto;
+  margin-top: 80px;
+  padding: 40px;
+  .register-title {
+    @include title-style;
+  }
+  .register-form {
+    margin-top: 50px;
+  }
+  .steps-content {
+    .back-gray {
+      background: #F1F1F1 !important;
+    }
+    .second-title {
+      color: #3B7097;
+      margin-top: 20px;
+      font-size: 16px;
+      padding-bottom: 10px;
+      font-family: 'Ubuntu-Bold';
+      border-bottom: 1px solid #EEEEEE;
+    }
+    .third-title {
+      color: #2F2E33;
+      font-size: 16px;
+      font-family: 'Ubuntu-Medium';
+      margin-bottom: 10px;
+    }
+    .gray-input {
+      width: 35%;
+      border: 1px solid #D0D0D0;
+      height: 40px;
+      display: flex;
+      -webkit-box-pack: center;
+      justify-content: center;
+      align-content: center;
+      padding-left: 20px;
+      background: #F1F1F1;
+      margin-bottom: 20px;
+    }
+    .horizontal-blocks {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 30px;
+      .hr-block {
+        width: 46%;
+    
+      }
+      .hr-input {
+        display: flex;
+        justify-content: space-between;
+        input {
+          width: 18px;
+          height: 18px;
+          margin-right: 9px;
+        }
+        div {
+          border: 1px solid #D0D0D0;
+          width: 43%;
+          height: 40px;
+          display: flex;
+          align-items: center;
+          color: #2F2E33;
+          font-size: 14px;
+          padding-left: 20px;
+          font-family: 'Ubuntu-Regular';
+        }
+      }
+    }
+    .small-radio {
+      width: 18px !important;
+      height: 18px !important;
+      margin-right: 9px;
+    }
+    .proposed-company-name {
+      .inputs {
+        display: flex;
+        justify-content: space-between;
+        align-content: center;
+        input {
+          width: 46%;
+          border: 1px solid #D0D0D0;
+          height: 40px;
+          display: flex;
+          justify-content: center;
+          align-content: center;
+          padding-left: 20px;
+        }
+      }
+      .btn-upload {
+        width: 160px;
+        height: 40px;
+        border: 1px solid #3B7097;
+        display: grid;
+        color: #3B7097;
+        justify-content: center;
+        align-content: center;
+        border-radius: 50px;
+        font-size: 16px;
+        margin: 30px auto 20px;
+        font-family: 'Ubuntu-Regular';
+        &:hover {
+          cursor: pointer;
+        }
+        input {
+         display: none;
+        }
+        span {
+          margin-right: 5px;
+        }
+      }
+    }
+    .third-block {
+
+      .btn-upload {
+        width: 260px;
+        height: 40px;
+        border: 1px solid #3B7097;
+        display: grid;
+        color: #3B7097;
+        justify-content: center;
+        align-content: center;
+        border-radius: 50px;
+        font-size: 16px;
+        margin: 30px auto 20px;
+        font-family: 'Ubuntu-Regular';
+        &:hover {
+          cursor: pointer;
+        }
+        label {
+          width: 100%;
+          display: block;
+        }
+        input {
+         display: none;
+        }
+        span {
+          margin-right: 5px;
+        }
+      }
+      .flex-start {
+        justify-content: flex-start !important;
+      }
+      .btn-upload-input {
+        margin-right: 20px;
+        width: 100%;
+        border: 1px solid #D0D0D0;
+        height: 40px;
+        line-height: 40px;
+        display: -webkit-box;
+        padding-left: 14px;
+        padding-right: 14px;
+        &:hover {
+          cursor: pointer;
+        }
+        label {
+          width: 100%;
+          display: block;
+          height: 40px;
+        }
+        input {
+         display: none !important;
+        }
+        span {
+          margin-right: 5px;
+        }
+      }
+      .inputs {
+        display: flex;
+        justify-content: space-between;
+        align-content: center;
+        margin-bottom: 30px;
+        div {
+         width: 32%; 
+        }
+        .resid-address {
+          width: 27%;
+        }
+        .postcode-address {
+          width: 100px;
+        }
+        label {
+          color: #2F2E33;
+          font-size: 14px;
+          font-family: 'Ubuntu-Medium';
+          margin-bottom: 15px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        }
+        input {
+          width: 100%;
+          border: 1px solid #D0D0D0;
+          height: 40px;
+          display: flex;
+          justify-content: center;
+          align-content: center;
+          padding-left: 14px;
+        }
+        select {
+          width: 100%;
+          border: 1px solid #D0D0D0;
+          height: 40px;
+          display: flex;
+          justify-content: center;
+          align-content: center;
+          padding-left: 14px;
+        }
+        input[type="date"]::-webkit-calendar-picker-indicator {
+          color: rgba(0, 0, 0, 0);
+          opacity: 1;
+          display: block;
+          background: url(src/assets/img/calendar.png) no-repeat;
+          width: 20px;
+          height: 20px;
+          border-width: thin;
+          -webkit-appearance: none;
+        }
+        input[type="date"]::-webkit-inner-spin-button {
+          -webkit-appearance: none;
+      }
+      }
+      .dot-color {
+        color: white !important;
+      }
+    }
+  }
+}
+.foot-btns {
+  margin-top: 110px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  .btn-prev {
+    width: 134px;
+    height: 40px;
+    background: white;
+    color: #2F2E33;
+    background: white;
+    font-size: 14px;
+    font-family: 'Ubuntu-Regular';
+    border-radius: 50px;
+    border: 1px solid #D0D0D0;
+  }
+  .btn-next {
+    width: 134px;
+    height: 40px;
+    background: #3B7097 !important;
+    color: #fff;
+    background: white;
+    font-size: 14px;
+    font-family: 'Ubuntu-Regular';
+    border-radius: 50px;
+    border: 1px solid #D0D0D0;
+  }
+  span {
+    margin: 0 5px;
+    
+  }
+}
+
+@media(max-width:992px) {
+  .register {
+    .register-title {
+      font-size: 21px;
+    }
+    .steps-content {
+      .horizontal-blocks {
+        .hr-block {
+          width: 49%;
+        }
+        .hr-input {
+          div {
+            width: 46%;
+            padding-left: 4px;
+          }
+          input {
+            width: 16px;
+            height: 16px;
+            margin-right: 3px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media(max-width:767px) {
+  .register {
+      margin-top: 67px;
+      padding: 8px;
+    .register-title {
+      font-size: 19px;
+      line-height: 24px;
+      text-align: center;
+    }
+    .steps-content {
+      .horizontal-blocks {
+        flex-direction: column;
+        .hr-block {
+          width: 100%;
+          margin-bottom: 20px;
+        }
+        .hr-input {
+          div {
+            width: 46%;
+            padding-left: 4px;
+          }
+          input {
+            width: 16px;
+            height: 16px;
+            margin-right: 3px;
+          }
+        }
+      }
+      .proposed-company-name {
+        .inputs {
+          flex-direction: column;
+          input {
+            width: 100%;
+            padding-left: 10px;
+            margin-bottom: 20px;
+          }
+        }
+      }
+      .third-title {
+        line-height: 22px;
+      }
+      .gray-input {
+        width: 100%;
+      }
+    }
+  }
+  .foot-btns {
+    margin-top: 60px;
+  }
+}
+
+@media(max-width:480px) {
+  .register {
+      margin-top: 67px;
+      padding: 8px;
+    .register-title {
+      font-size: 19px;
+      line-height: 24px;
+      text-align: center;
+    }
+    .steps-content {
+      .horizontal-blocks {
+        flex-direction: column;
+        .hr-block {
+          width: 100%;
+          margin-bottom: 20px;
+        }
+        .hr-input {
+          flex-direction: column;
+          div {
+            width: 100%;
+            margin-bottom: 20px;
+          }
+          input {
+            width: 16px;
+            height: 16px;
+            margin-right: 3px;
+          }
+        }
+      }
+      .proposed-company-name {
+        .inputs {
+          flex-direction: column;
+          input {
+            width: 100%;
+            padding-left: 10px;
+            margin-bottom: 20px;
+          }
+        }
+      }
+      .third-title {
+        line-height: 22px;
+      }
+      .gray-input {
+        width: 100%;
+      }
+    }
+  }
+  .foot-btns {
+    margin-top: 60px;
+  }
+}

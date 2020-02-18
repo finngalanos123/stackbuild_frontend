@@ -1,3 +1,11 @@
-//roundBtn{
-//  color:blue;
-//}
+@mixin title-style {
+  font-size: 24px;
+  color: #2F2E33;
+  padding-bottom: 25px;
+  font-family: 'Ubuntu-Bold';
+  border-bottom: 1px solid #EEEEEE;
+  @media(max-width: 480px) {
+    font-size: 20px;
+    padding-bottom: 7px;
+  }
+}

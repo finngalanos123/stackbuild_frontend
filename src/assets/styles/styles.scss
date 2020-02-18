@@ -34,4 +34,22 @@ select {
   src:url('assets/fonts/Ubuntu-M.ttf') format('truetype');
   font-family: 'Ubuntu-Medium';
 }
-
+.register {
+  .mat-step-header {
+    &:hover {
+      background-color: transparent;
+    }
+    &:focus {
+      background-color: transparent;
+    }
+    .mat-step-icon {
+      width: 48px !important;
+      height: 48px;
+      margin-top: -14px;
+    }
+    //.mat-step-icon:not(.mat-step-icon-selected) {
+    //  background: #EEEEEE;
+    //  color: #2F2E33;
+    //}
+  }
+}
