@@ -1,24 +1,189 @@
-<form [formGroup]="registrationForm">
-  <mat-horizontal-stepper [linear]="false" labelPosition="bottom" #stepper>
+<div class="register">
+   <h1 class="register-title">
+     Information required for incorporation of new Company in Singapore
+   </h1>
+   <form [formGroup]="registrationForm" class="register-form">
+    <mat-horizontal-stepper [linear]="false" labelPosition="bottom" #stepper>
     <mat-step>
       <ng-template matStepLabel>Company info</ng-template>
-      <div formGroupName="companyInfo">
+      <div class="steps-content">
+        <h3 class="second-title">Company Name</h3>
+        <div class="proposed-company-name">
+          <h3 class="third-title">Proposed Company Name</h3>
+          <div class="inputs">
+            <input placeholder="1st choice">
+            <input placeholder="2nd choice">
+          </div>
+          <div class="btn-upload">
+              <label for="file-input">
+                  <span>+</span> Add choice
+              </label>
+              <input id="file-input" type="file">
+          </div>
+        </div>
+        <h3 class="second-title">Company Type</h3>
+        <h3 class="third-title">Type of Company</h3>
+        <input class="gray-input" placeholder="Private company limited by shares">
+        <div class="horizontal-blocks"> 
+
+            <div class="hr-block">
+              <h3 class="third-title">Have you obtained approval from relevant authorities?</h3>
+              <div class="hr-input">
+                <div>
+                  <input type="radio" name="yes-no" value="yes">Yes<br>
+                </div>
+                <div>
+                  <input type="radio" name="yes-no" value="no"> No, not required<br>
+                </div>
+              </div>
+            </div>
+
+            <div class="hr-block">
+              <h3 class="third-title">Will this new company take over another company?</h3>
+              <div class="hr-input">
+                <div>
+                  <input type="radio" name="later-not" value="later">Yes, maybe later<br>
+                </div>
+                <div>
+                  <input type="radio" name="later-not" value="not">No, not now<br>
+                </div>
+              </div>
+            </div>
+
+
+        </div>
+      </div>
+      <div class="foot-btns">
+        <button class="btn-prev"><span> &#60; </span>Previous</button>
+        <button class="btn-next" matStepperNext>Next<span> > </span></button>
+      </div>
+     
+    <!--  <div formGroupName="companyInfo">
         <span>Step 1</span>
         <mat-form-field>
-
           <input matInput formControlName="input1">
         </mat-form-field>
-      </div>
-      <button color="primary" mat-raised-button matStepperNext>Next</button>
+      </div> -->
     </mat-step>
     <mat-step>
       <ng-template matStepLabel>Personal info</ng-template>
-      <div formGroupName="personalInfo">
-        <span>Step 2</span>
-        <mat-form-field>
-          <input matInput formControlName="input2">
-        </mat-form-field>
-        <button mat-raised-button color="primary" matStepperNext>Next</button>
+      <div class="steps-content">
+        <h3 class="second-title">Director / Shareholder</h3>
+        <div class="third-block">
+          <div class="inputs">
+            <div>
+              <label>First and Last Name</label>
+              <input placeholder="Enter your name as per your passport">
+            </div>
+            <div>
+              <label>Passport Number</label>
+              <input placeholder="Enter a valid passport number">
+            </div>
+            <div>
+              <label>Passport Expiry</label>
+              <input placeholder="Select" type="date" class="">
+            </div>
+          </div>
+          <div class="inputs">
+            <div>
+              <label>Nationality</label>
+              <select>
+                <option>Enter your name as per your passport</option>
+                <option>Jonh Dae</option>
+                <option>Mahatma Gandi</option>
+                <option>Paulo Colyo</option>
+              </select>
+            </div>
+            <div>
+              <label>Date of Birth</label>
+              <input placeholder="Select" type="date" class="">
+            </div>
+            <div>
+              <label>Mobile number</label>
+              <input placeholder="Select" class="">
+            </div>
+          </div>
+          <div class="inputs">
+            <div>
+              <label>Password</label>
+              <input placeholder="At least ten characters">
+            </div>
+            <div class="resid-address">
+              <label>Residential address</label>
+              <input placeholder="Address line 1">
+            </div>
+            <div class="resid-address">
+              <label class="dot-color">.</label>
+              <input placeholder="Address line 2">
+            </div>
+            <div class="postcode-address">
+              <label class="dot-color">.</label>
+              <input placeholder="Postcode">
+            </div>
+          </div>
+<!-- 
+          <div class="inputs">
+            <div>
+              <label>Are you both a director and shareholder?</label>
+              <div class="radio-div">
+                <input class="small-radio" type="radio" name="yes-no" value="yes">Are you both a director and shareholder?
+              </div>
+            </div>
+            <div class="resid-address">
+              <label>.</label>
+              <input placeholder="Yes, I'm both the director and shareholder" type="radio">
+            </div>
+                 <div>
+                <label>Shareholding Percentage (%)</label>
+                <select>
+                  <option>Select</option>
+                  <option>Select</option>
+                </select>
+              </div>
+          </div> -->
+
+
+
+
+            <div class="inputs flex-start">
+            <div class="btn-upload-input">
+              <label for="file-input">Attach file<img src="assets/img/attach.png"></label>
+              <input id="file-input" type="file">
+            </div>
+            <div class="btn-upload-input">
+              <label for="file-input">Attach file<img src="assets/img/attach.png"></label>
+              <input id="file-input" type="file">
+            </div>
+          </div>
+          <div class="btn-upload">
+            <label for="file-input">
+                <span>+</span> Add director/shareholder
+            </label>
+            <input id="file-input" type="file">
+        </div>
+
+        <h3 class="second-title">Nominee Director</h3>
+        <div class="inputs">
+          <div>
+            <label>First and Last Name</label>
+            <input class="back-gray" placeholder="As per records">
+          </div>
+          <div>
+            <label>Passport Number</label>
+            <input class="back-gray" placeholder="As per records">
+          </div>
+          <div>
+            <label>Passport Expiry</label>
+            <input class="back-gray" placeholder="As per records" type="date" class="">
+          </div>
+        </div>
+        </div>
+
+        <div class="foot-btns">
+          <button class="btn-prev"><span> &#60; </span>Previous</button>
+          <button class="btn-next" matStepperNext>Next<span> > </span></button>
+        </div>
+
       </div>
     </mat-step>
     <mat-step>
@@ -58,4 +223,6 @@
       </div>
     </mat-step>
   </mat-horizontal-stepper>
-</form>
+   </form>
+</div>
+
