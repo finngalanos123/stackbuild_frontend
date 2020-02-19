@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup} from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
+import { ShareholdingDialogComponent } from 'src/app/core/components/shareholding-dialog/shareholding-dialog.component';
 
 @Component({
   selector: 'app-register',
@@ -11,7 +13,8 @@ export class RegisterComponent implements OnInit {
   registrationForm: FormGroup;
 
   constructor(
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private dialog: MatDialog
   ) {
     this.registrationForm = this.fb.group({
       companyInfo:
@@ -34,6 +37,14 @@ export class RegisterComponent implements OnInit {
 
   saveInfo() {
     console.log(this.registrationForm.value)
+  }
+
+  shareholdingChange(e) {
+    console.log(e.target.value);
+    if(e.target.value == "< 100%") {
+      this.dialog.open(ShareholdingDialogComponent, {width: '400', height: '480'})  
+    }
+    
   }
 
 }

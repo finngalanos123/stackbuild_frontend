@@ -23,17 +23,19 @@ select {
   outline: none;
 }
 @font-face {
-  src:url('assets/fonts/Ubuntu-B.ttf') format('truetype');
+  src:url('src/assets/fonts/Ubuntu-B.ttf') format('truetype');
   font-family: 'Ubuntu-Bold';
 }
 @font-face {
-  src:url('assets/fonts/Ubuntu-R.ttf') format('truetype');
-  font-family: 'Ubuntu-Regular';
-}
-@font-face {
-  src:url('assets/fonts/Ubuntu-M.ttf') format('truetype');
+  src:url('src/assets/fonts/Ubuntu-M.ttf') format('truetype');
   font-family: 'Ubuntu-Medium';
 }
+@font-face {
+  src:url('src/assets/fonts/Ubuntu-R.ttf') format('truetype');
+  font-family: 'Ubuntu-Regular';
+}
+
+
 .register {
   .mat-step-header {
     &:hover {
@@ -42,14 +44,11 @@ select {
     &:focus {
       background-color: transparent;
     }
-    .mat-step-icon {
-      width: 48px !important;
-      height: 48px;
-      margin-top: -14px;
-    }
-    //.mat-step-icon:not(.mat-step-icon-selected) {
-    //  background: #EEEEEE;
-    //  color: #2F2E33;
-    //}
+  }
+}
+
+@media(max-width: 480px) {
+  .mat-dialog-container {
+    padding: 12px;
   }
 }
