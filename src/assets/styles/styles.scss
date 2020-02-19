@@ -46,6 +46,15 @@ select {
     }
   }
 }
+.mat-stepper-label-position-bottom  {
+  .mat-horizontal-stepper-header {
+    padding: 10px !important;
+  }
+}
+.mat-step-icon {
+  height: 48px !important;
+  width: 48px !important;
+}
 
 @media(max-width: 480px) {
   .mat-dialog-container {
