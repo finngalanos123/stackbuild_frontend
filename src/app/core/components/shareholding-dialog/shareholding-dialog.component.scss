@@ -1,21 +1,22 @@
+@import 'src/assets/styles/styles';
 .register-dialog {
     padding: 20px 4px;
     box-sizing: border-box;
+    h1 {
+        font-size: 24px;
+        font-family: 'Ubuntu-Bold';
+        color: #2F2E33;
+        margin-bottom: 32px;
+    }
+    p {
+        font-size: 16px;
+        font-family: 'Ubuntu-Regular';
+        color: #2F2E33;
+        margin-bottom: 38px;
+    }
     .tab-content {
         height: 200px;
         box-sizing: border-box;
-        h1 {
-            font-size: 24px;
-            font-family: 'Ubuntu-Bold';
-            color: #2F2E33;
-            margin-bottom: 32px;
-        }
-        p {
-            font-size: 16px;
-            font-family: 'Ubuntu-Regular';
-            color: #2F2E33;
-            margin-bottom: 38px;
-        }
         .text-email {
             color: #2F2E33;
             font-family: 'Ubuntu-Medium';

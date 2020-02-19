@@ -1,4 +1,5 @@
 @import 'src/assets/styles/mixins';
+@import 'src/assets/styles/styles';
 input, div {
   box-sizing: border-box;
 }
@@ -21,6 +22,7 @@ input, div {
       color: #3B7097;
       margin-top: 20px;
       font-size: 16px;
+      margin-bottom: 20px;
       padding-bottom: 10px;
       font-family: 'Ubuntu-Bold';
       border-bottom: 1px solid #EEEEEE;
