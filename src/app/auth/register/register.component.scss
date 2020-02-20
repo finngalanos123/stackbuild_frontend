@@ -22,6 +22,17 @@ input, div {
     .add-chocie {
       display: flex;
     }
+    .checkbox-input {
+      color: #2F2E33;
+      font-size: 16px;
+      font-family: 'Ubuntu-Regular';
+      max-width: 800px;
+      margin-left: 5px;
+      margin-left: 100px;
+      input {
+        margin-right: 5px;
+      }
+    }
 
     .back-gray {
       background: #F1F1F1 !important;
@@ -278,27 +289,15 @@ input, div {
   align-items: center;
 
   .btn-prev {
-    width: 134px;
-    height: 40px;
+    @include btn-next-prev;
     background: white;
     color: #2F2E33;
-    background: white;
-    font-size: 14px;
-    font-family: 'Ubuntu-Regular';
-    border-radius: 50px;
-    border: 1px solid #D0D0D0;
   }
 
   .btn-next {
-    width: 134px;
-    height: 40px;
-    background: #3B7097 !important;
+    @include btn-next-prev;
+    background: #3B7097;
     color: #fff;
-    background: white;
-    font-size: 14px;
-    font-family: 'Ubuntu-Regular';
-    border-radius: 50px;
-    border: 1px solid #D0D0D0;
   }
 
   span {
