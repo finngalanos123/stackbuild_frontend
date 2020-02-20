@@ -34,8 +34,6 @@ select {
   src:url('src/assets/fonts/Ubuntu-R.ttf') format('truetype');
   font-family: 'Ubuntu-Regular';
 }
-
-
 .register {
   .mat-step-header {
     &:hover {
@@ -46,7 +44,9 @@ select {
     }
   }
 }
-
+.register-dialog {
+  max-width: 484px !important;
+}
 @media(max-width: 480px) {
   .mat-dialog-container {
     padding: 12px;
