@@ -4,7 +4,8 @@
   </h1>
   <form [formGroup]="registrationForm" class="register-form">
     <mat-horizontal-stepper [linear]="false" labelPosition="bottom" #stepper>
-      <!-- 111111111111 -->
+
+      <!--  Step 1 -->
       <mat-step>
         <ng-template matStepLabel>Company info</ng-template>
         <div class="steps-content">
@@ -15,12 +16,9 @@
               <input placeholder="1st choice">
               <input placeholder="2nd choice">
             </div>
-            <div class="btn-upload">
-              <label for="file-input">
-                <span>+</span> Add choice
-              </label>
-              <input id="file-input" type="file">
-            </div>
+            <a class="add-block add-chocie">
+              + Add choice
+            </a>
           </div>
           <h3 class="second-title">Company Type</h3>
           <h3 class="third-title">Type of Company</h3>
@@ -57,10 +55,9 @@
           <button class="btn-prev"><span> &#60; </span>Previous</button>
           <button class="btn-next" matStepperNext>Next<span> > </span></button>
         </div>
-
-  
       </mat-step>
-      <!-- 22222222222222 -->
+
+      <!-- Step 2 -->
       <mat-step>
         <ng-template matStepLabel>Personal info</ng-template>
         <div class="steps-content">
@@ -141,28 +138,33 @@
                 <select (change)="shareholdingChange($event)">
                   <option disabled selected hidden>Select</option>
                   <option>100%</option>
-                  <option>< 100%</option>
+                  <option>
+                    < 100%</option>
                 </select>
               </div>
             </div>
 
 
             <div class="inputs flex-start">
-              <div class="btn-upload-input">
-                <label for="file-input">Attach file<img src="assets/img/attach.png"></label>
-                <input id="file-input" type="file">
+              <div class="attach">
+                <label>Attach Passport</label>
+                <div class="btn-upload-input">
+                  <label for="attach-passport">Attach file<img src="assets/img/attach.png"></label>
+                  <input type="file" id="attach-passport">
+                </div>
               </div>
-              <div class="btn-upload-input">
-                <label for="file-input">Attach file<img src="assets/img/attach.png"></label>
-                <input id="file-input" type="file">
+              <div class="attach">
+                <label>Attach Proof of Address</label>
+                <div class="btn-upload-input">
+                  <label for="attach-address">Attach file<img src="assets/img/attach.png"></label>
+                  <input type="file" id="attach-address">
+                </div>
               </div>
             </div>
-            <div class="btn-upload">
-              <label for="file-input">
-                <span>+</span> Add director/shareholder
-              </label>
-              <input id="file-input" type="file">
-            </div>
+
+            <a class="add-block add-chocie">
+              + Add director/shareholder
+            </a>
 
             <h3 class="second-title">Nominee Director</h3>
             <div class="inputs">
@@ -202,8 +204,6 @@
                 <input class="back-gray" placeholder="As per records" disabled>
               </div>
             </div>
-
-
           </div>
 
           <div class="foot-btns">
@@ -213,7 +213,7 @@
 
         </div>
       </mat-step>
-      <!-- 333333333333333 -->
+      <!--  Step 3 -->
       <mat-step>
         <ng-template matStepLabel>Company details</ng-template>
         <div class="steps-content">
@@ -237,7 +237,8 @@
               </div>
               <div>
                 <label>Constitution</label>
-                <input class="back-gray" placeholder="Use ACRA's model constitution at the time of incorporation" disabled>
+                <input class="back-gray" placeholder="Use ACRA's model constitution at the time of incorporation"
+                  disabled>
               </div>
             </div>
 
@@ -272,7 +273,7 @@
                 <input class="back-gray" placeholder="31 12 2020" disabled>
               </div>
               <div>
-                
+
               </div>
             </div>
           </div>

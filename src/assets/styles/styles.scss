@@ -1,37 +1,46 @@
 @import './mixins';
 @import 'variables';
 @import "media";
+
 html, body, p, h1, h2, h3, h4, ul, input, button {
-  margin: 0 ;
-  padding: 0 ;
+  margin: 0;
+  padding: 0;
 }
+
 input, button {
   outline: none;
   border: none;
 }
+
 button:hover {
   outline: none;
   cursor: pointer;
 }
+
 a, a:hover {
   text-decoration: none;
 }
+
 button:active, button:focus {
   outline: none !important;
 }
+
 select {
   outline: none;
 }
+
 @font-face {
-  src:url('src/assets/fonts/Ubuntu-B.ttf') format('truetype');
+  src: url('src/assets/fonts/Ubuntu-B.ttf') format('truetype');
   font-family: 'Ubuntu-Bold';
 }
+
 @font-face {
-  src:url('src/assets/fonts/Ubuntu-M.ttf') format('truetype');
+  src: url('src/assets/fonts/Ubuntu-M.ttf') format('truetype');
   font-family: 'Ubuntu-Medium';
 }
+
 @font-face {
-  src:url('src/assets/fonts/Ubuntu-R.ttf') format('truetype');
+  src: url('src/assets/fonts/Ubuntu-R.ttf') format('truetype');
   font-family: 'Ubuntu-Regular';
 }
 .register {
@@ -39,6 +48,7 @@ select {
     &:hover {
       background-color: transparent;
     }
+
     &:focus {
       background-color: transparent;
     }
@@ -48,27 +58,15 @@ select {
   max-width: 484px !important;
 }
 .mat-stepper-label-position-bottom  {
-  .mat-horizontal-stepper-header {
-    padding: 10px !important;
-  }
+    .mat-horizontal-stepper-header {
+      padding: 10px !important;
+    }
 }
 .mat-step-icon {
   height: 48px !important;
   width: 48px !important;
 }
-.register-dialog.close {
-  width: 60px;
-  text-align: right;
-  height: 40px;
-  background: transparent;
-  color: #2F2E33;
-  background: white;
-  font-size: 20px;
-  font-family: "Ubuntu-Regular";
-  border-radius: 50px;
-  border: 0;
-  float: none;
-}
+
 
 @media(max-width: 480px) {
   .mat-dialog-container {
