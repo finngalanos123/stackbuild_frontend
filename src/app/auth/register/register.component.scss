@@ -22,24 +22,13 @@ input, div {
     touch-action: none;
     border: 1px solid gainsboro;
     width: 200px;
+    //height: 220px;
+    margin-left: 100px;
+    //canvas {
+    //  width: 400px !important;
+    //  height: 220px !important;
+    //}
   }
-
-  .phones{
-    display: block;
-    width: 100%;
-    padding: 0.4375rem 0;
-    font-size: 1rem;
-    line-height: 1.5;
-    margin: 0 5px;
-    color: #495057;
-    background-color: rgba(0, 0, 0, 0);
-    background-clip: padding-box;
-    border: 1px solid #D0D0D0;
-    border-radius: 0;
-    box-shadow: none;
-    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-  }
-
   .steps-content {
     .add-chocie {
       display: flex;
@@ -50,7 +39,9 @@ input, div {
       font-size: 16px;
       font-family: 'Ubuntu-Regular';
       max-width: 800px;
+      margin: 60px 0;
       margin-left: 100px;
+
 
       input {
         margin-right: 5px;
