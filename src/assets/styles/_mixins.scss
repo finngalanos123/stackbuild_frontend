@@ -44,3 +44,11 @@
   border-radius: 50px;
   border: 1px solid #D0D0D0;
 }
+
+@mixin input-styles {
+  border: 1px solid #D0D0D0;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+}

@@ -56,15 +56,10 @@ input, div {
 
     .gray-input {
       width: 35%;
-      border: 1px solid #D0D0D0;
-      height: 40px;
-      display: flex;
-      -webkit-box-pack: center;
-      justify-content: center;
-      align-content: center;
-      padding-left: 20px;
       background: #F1F1F1;
       margin-bottom: 20px;
+      justify-content: center;
+      @include input-styles;
     }
 
     .horizontal-blocks {
@@ -88,15 +83,9 @@ input, div {
         }
 
         div {
-          border: 1px solid #D0D0D0;
           width: 43%;
-          height: 40px;
-          display: flex;
-          align-items: center;
           color: #2F2E33;
-          font-size: 14px;
-          padding-left: 20px;
-          font-family: 'Ubuntu-Regular';
+          @include input-styles;
         }
       }
     }
@@ -115,12 +104,8 @@ input, div {
 
         input {
           width: 46%;
-          border: 1px solid #D0D0D0;
-          height: 40px;
-          display: flex;
-          justify-content: center;
-          align-content: center;
-          padding-left: 20px;
+          justify-contet: center;
+          @include input-styles;
         }
       }
 
@@ -174,7 +159,17 @@ input, div {
         justify-content: space-between;
         align-content: center;
         margin-bottom: 30px;
-
+        .international-number {
+          .input-group {
+            width: 100% !important;
+            border: 1px solid #D0D0D0 !important;
+            height: 40px;
+            padding-left: 14px;
+            justify-content: flex-start;
+            display: flex !important;
+            align-items: center;
+          }
+        }
         .attach {
           width: 32%;
           margin-right: 20px;
@@ -229,22 +224,14 @@ input, div {
 
         input {
           width: 100%;
-          border: 1px solid #D0D0D0;
-          height: 40px;
-          display: flex;
           justify-content: center;
-          align-content: center;
-          padding-left: 14px;
+          @include input-styles;
         }
 
         select {
           width: 100%;
-          border: 1px solid #D0D0D0;
-          height: 40px;
-          display: flex;
           justify-content: center;
-          align-content: center;
-          padding-left: 14px;
+          @include input-styles;
         }
 
         input[type="date"]::-webkit-calendar-picker-indicator {
