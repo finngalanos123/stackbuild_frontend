@@ -3,6 +3,7 @@ import {FormBuilder, FormGroup} from '@angular/forms';
 import {MatDialog} from '@angular/material/dialog';
 import {ShareholdingDialogComponent} from 'src/app/core/components/shareholding-dialog/shareholding-dialog.component';
 import {ICreateOrderRequest, IPayPalConfig} from 'ngx-paypal';
+import {COUNTRY_CODES} from '../../core/constants/country-codes';
 
 @Component({
   selector: 'app-register',
@@ -14,7 +15,7 @@ export class RegisterComponent implements OnInit {
   registrationForm: FormGroup;
   payPalConfig ?: IPayPalConfig;
   defaultCountry = 'sg';
-  allowedCountries = ['ie', 'in', 'ca', 'us', 'sg', 'gb'] as any;
+  allowedCountries = COUNTRY_CODES;
 
   constructor(
     private fb: FormBuilder,
