@@ -303,10 +303,18 @@
               receive Kimbocorp emails, newsletters & updates.
               You also acknowledge that Kimbocorp uses cookies to give the best user experience.</label>
           </div>
-          <div class="signature">
-            <signature-pad [options]="signaturePadOptions" (onBeginEvent)="drawStart()" (onEndEvent)="drawComplete(sign, 'test')"
-                           #sign></signature-pad>
+          <div class="signature-block">
+            <div class="signature">
+              <signature-pad [options]="signaturePadOptions" (onBeginEvent)="drawStart()" (onEndEvent)="drawComplete(sign, 'test')"
+                             #sign></signature-pad>
+            </div>
+
+            <div class="signature">
+              <signature-pad [options]="signaturePadOptions" (onBeginEvent)="drawStart()" (onEndEvent)="drawComplete(sign, 'test')"
+                             #sign></signature-pad>
+            </div>
           </div>
+
 
           <div class="foot-btns">
             <button class="btn-prev"><span> &#60; </span>Previous</button>
@@ -325,11 +333,9 @@
           <!--            <input matInput formControlName="input5">-->
           <!--          </mat-form-field>-->
         </div>
-        <p>You are now done.</p>
-        <div>
-          <button mat-raised-button color="accent" (click)="saveInfo()">Submit</button>
-          <button mat-button matStepperPrevious>Back</button>
-          <button mat-raised-button (click)="stepper.reset()">Reset</button>
+        <div class="foot-btns">
+          <button class="btn-prev"><span> &#60; </span>Previous</button>
+          <button class="btn-next" matStepperNext>Next<span> > </span></button>
         </div>
       </mat-step>
     </mat-horizontal-stepper>

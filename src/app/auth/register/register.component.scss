@@ -25,6 +25,11 @@ input, div {
     height: 220px;
     margin-left: 100px;
   }
+  .signature-block {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
   .steps-content {
     .add-chocie {
       display: flex;
@@ -300,6 +305,17 @@ input, div {
   span {
     margin: 0 5px;
 
+  }
+}
+@media(max-width: 1200px) {
+  .register {
+    .signature {
+      margin-bottom: 20px;
+      margin-left: 0;
+    }
+  }
+  .signature-block {
+    flex-direction: column;
   }
 }
 
