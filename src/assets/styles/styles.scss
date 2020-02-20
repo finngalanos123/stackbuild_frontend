@@ -3,8 +3,6 @@
 @import "media";
 
 
-
-
 html, body, p, h1, h2, h3, h4, ul, input, button {
   margin: 0;
   padding: 0;
@@ -46,6 +44,7 @@ select {
   src: url('src/assets/fonts/Ubuntu-R.ttf') format('truetype');
   font-family: 'Ubuntu-Regular';
 }
+
 .register {
   .mat-step-header {
     &:hover {
@@ -57,17 +56,30 @@ select {
     }
   }
 }
+
 .mat-dialog-container {
   max-width: 484px !important;
 }
-.mat-stepper-label-position-bottom  {
-    .mat-horizontal-stepper-header {
-      padding: 10px !important;
-    }
+
+.mat-stepper-label-position-bottom {
+  .mat-horizontal-stepper-header {
+    padding: 10px !important;
+  }
 }
+
 .mat-step-icon {
   height: 48px !important;
   width: 48px !important;
+}
+
+.phones {
+
+  .flagInput {
+    border: 1px solid #D0D0D0;
+  }
+  input.form-control{
+    border: 1px solid #D0D0D0;
+  }
 }
 
 
