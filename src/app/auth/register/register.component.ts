@@ -24,8 +24,8 @@ export class RegisterComponent implements OnInit {
   industries = INDUSTRIES
   signaturePadOptions: Object = { // passed through to szimek/signature_pad constructor
     'minWidth': 5,
-    'canvasWidth': 200,
-    'canvasHeight': 100,
+    'canvasWidth': 420,
+    'canvasHeight': 220,
   };
 
   @ViewChild(SignaturePad) sign1: SignaturePad;
