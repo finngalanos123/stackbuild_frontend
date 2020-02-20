@@ -6,6 +6,7 @@ import {ICreateOrderRequest, IPayPalConfig} from 'ngx-paypal';
 import {COUNTRY_CODES} from '../../core/constants/country-codes';
 import {SignaturePad} from 'ngx-signaturepad';
 import {DataUrlToFilePipe} from '../../shared/pipes/data-url-to-file.pipe';
+import {NATIONALITIES} from '../../core/constants/nationalities';
 
 @Component({
   selector: 'app-register',
@@ -18,6 +19,7 @@ export class RegisterComponent implements OnInit {
   payPalConfig ?: IPayPalConfig;
   defaultCountry = 'sg';
   allowedCountries = COUNTRY_CODES;
+  nationalities = NATIONALITIES;
   signaturePadOptions: Object = { // passed through to szimek/signature_pad constructor
     'minWidth': 5,
     'canvasWidth': 200,
@@ -70,7 +72,7 @@ export class RegisterComponent implements OnInit {
   private initConfig(): void {
     this.payPalConfig = {
       currency: 'EUR',
-      clientId: 'AawIoSwkiiAbu1b3D59rIjfvqNQNHXedQvApJHwOavY1XBXUF-6ofrXXImB9TShdCYW7kGlbqbfBqP3R',
+      clientId: 'AZUC1ah9XyE3zr5X7RWd-YRHSJjdeNGc6nVDAi_JkEpXfjCMHaaaH4ewIGai_X-BINpuQXDDwssEmFtY',
       createOrderOnClient: (data) => <ICreateOrderRequest>{
         intent: 'CAPTURE',
         purchase_units: [
@@ -137,7 +139,7 @@ export class RegisterComponent implements OnInit {
 
   drawComplete(sign, filename) {
 
-    var file = this.dataURLtoFile.transform(sign.toDataURL(),filename +'.jpg');
+    var file = this.dataURLtoFile.transform(sign.toDataURL(), filename + '.jpg');
     console.log(sign.toDataURL())
   }
 
