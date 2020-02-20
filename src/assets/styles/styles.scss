@@ -43,8 +43,6 @@ select {
   src: url('src/assets/fonts/Ubuntu-R.ttf') format('truetype');
   font-family: 'Ubuntu-Regular';
 }
-
-
 .register {
   .mat-step-header {
     &:hover {
@@ -56,17 +54,19 @@ select {
     }
   }
 }
-
-.mat-stepper-label-position-bottom {
-  .mat-horizontal-stepper-header {
-    padding: 10px !important;
-  }
+.mat-dialog-container {
+  max-width: 484px !important;
 }
-
+.mat-stepper-label-position-bottom  {
+    .mat-horizontal-stepper-header {
+      padding: 10px !important;
+    }
+}
 .mat-step-icon {
   height: 48px !important;
   width: 48px !important;
 }
+
 
 @media(max-width: 480px) {
   .mat-dialog-container {

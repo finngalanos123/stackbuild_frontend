@@ -16,12 +16,9 @@
               <input placeholder="1st choice">
               <input placeholder="2nd choice">
             </div>
-            <div class="btn-upload">
-              <label for="add-choice">
-                <span>+</span> Add choice
-              </label>
-              <input type="file" id="add-choice">
-            </div>
+            <a class="add-block add-chocie">
+              + Add choice
+            </a>
           </div>
           <h3 class="second-title">Company Type</h3>
           <h3 class="third-title">Type of Company</h3>
@@ -139,29 +136,35 @@
               <div>
                 <label>Shareholding Percentage (%)</label>
                 <select (change)="shareholdingChange($event)">
-                  <option>100 %</option>
-                  <option>< 100%</option>
+                  <option disabled selected hidden>Select</option>
+                  <option>100%</option>
+                  <option>
+                    < 100%</option>
                 </select>
               </div>
             </div>
 
 
             <div class="inputs flex-start">
-              <label>Attach Passport</label>
-              <div class="btn-upload-input">
-                <label for="attach-passport">Attach file<img src="assets/img/attach.png"></label>
-                <input type="file" id="attach-passport">
+              <div class="attach">
+                <label>Attach Passport</label>
+                <div class="btn-upload-input">
+                  <label for="attach-passport">Attach file<img src="assets/img/attach.png"></label>
+                  <input type="file" id="attach-passport">
+                </div>
               </div>
+              <div class="attach">
+                <label>Attach Proof of Address</label>
+                <div class="btn-upload-input">
+                  <label for="attach-address">Attach file<img src="assets/img/attach.png"></label>
+                  <input type="file" id="attach-address">
+                </div>
+              </div>
+            </div>
 
-              <label>Attach Proof of Address</label>
-              <div class="btn-upload-input">
-                <label for="attach-address">Attach file<img src="assets/img/attach.png"></label>
-                <input type="file" id="attach-address">
-              </div>
-            </div>
-            <div class="btn-upload">
-                <span>+</span> Add director/shareholder
-            </div>
+            <a class="add-block add-chocie">
+              + Add director/shareholder
+            </a>
 
             <h3 class="second-title">Nominee Director</h3>
             <div class="inputs">
@@ -235,7 +238,7 @@
               <div>
                 <label>Constitution</label>
                 <input class="back-gray" placeholder="Use ACRA's model constitution at the time of incorporation"
-                       disabled>
+                  disabled>
               </div>
             </div>
 

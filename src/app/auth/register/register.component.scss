@@ -6,7 +6,6 @@ input, div {
 .register {
   max-width: 1200px;
   margin: 0 auto;
-  margin-top: 80px;
   padding: 40px;
   .register-title {
     @include title-style;
@@ -15,14 +14,16 @@ input, div {
     margin-top: 50px;
   }
   .steps-content {
+    .add-chocie {
+      display: flex;
+    }
     .back-gray {
       background: #F1F1F1 !important;
     }
     .second-title {
       color: #3B7097;
-      margin-top: 20px;
+      margin: 14px 0px;
       font-size: 16px;
-      margin-bottom: 20px;
       padding-bottom: 10px;
       font-family: 'Ubuntu-Bold';
       border-bottom: 1px solid #EEEEEE;
@@ -51,7 +52,7 @@ input, div {
         margin-top: 30px;
       .hr-block {
         width: 46%;
-    
+
       }
       .hr-input {
         display: flex;
@@ -94,7 +95,7 @@ input, div {
           padding-left: 20px;
         }
       }
-      .btn-upload {
+      .add-block {
         width: 160px;
         height: 40px;
         border: 1px solid #3B7097;
@@ -118,8 +119,7 @@ input, div {
       }
     }
     .third-block {
-
-      .btn-upload {
+      .add-block {
         width: 260px;
         height: 40px;
         border: 1px solid #3B7097;
@@ -129,7 +129,7 @@ input, div {
         align-content: center;
         border-radius: 50px;
         font-size: 16px;
-        margin: 30px auto 20px;
+        margin: 20px auto 20px;
         font-family: 'Ubuntu-Regular';
         &:hover {
           cursor: pointer;
@@ -177,6 +177,13 @@ input, div {
         justify-content: space-between;
         align-content: center;
         margin-bottom: 30px;
+        .attach {
+          width: 32%;
+          margin-right: 20px;
+          > div {
+            width: 100% !important;
+          }
+        }
         .director-shareholder {
           input {
             width: 18px;
@@ -197,7 +204,7 @@ input, div {
           }
         }
         div {
-         width: 32%; 
+         width: 32%;
         }
         .resid-address {
           width: 27%;
@@ -291,7 +298,7 @@ input, div {
   }
   span {
     margin: 0 5px;
-    
+
   }
 }
 
@@ -488,7 +495,7 @@ input, div {
             width: 100%;
           }
         }
-        .btn-upload {
+        .add-block {
           width: 90%;
           height: 35px;
           font-size: 13px;
