@@ -60,7 +60,7 @@
       <!-- Step 2 -->
       <mat-step>
         <ng-template matStepLabel>Personal info</ng-template>
-        <div class="steps-content">
+        <div class="steps-content" formGroupName="personalInfo">
           <h3 class="second-title">Director / Shareholder</h3>
           <div class="third-block">
             <div class="inputs">
@@ -83,7 +83,7 @@
                 <label>Nationality</label>
                 <select>
                   <option>Enter your name as per your passport</option>
-                  <option>Jonh Dae</option>
+                  <option>Jonh Doe</option>
                   <option>Mahatma Gandi</option>
                   <option>Paulo Colyo</option>
                 </select>
@@ -94,7 +94,10 @@
               </div>
               <div>
                 <label>Mobile number</label>
-                <input placeholder="Select" class="">
+                <international-phone-number placeholder="Phone number" formControlName="phone" [maxlength]="20"
+                                            [defaultCountry]="defaultCountry" [required]="true"
+                                            (change)="changedCountry($event)"
+                                            [allowedCountries]="allowedCountries"></international-phone-number>
               </div>
             </div>
 
@@ -139,7 +142,8 @@
                   <option disabled selected hidden>Select</option>
                   <option>100%</option>
                   <option>
-                    < 100%</option>
+                    < 100%
+                  </option>
                 </select>
               </div>
             </div>
@@ -185,6 +189,7 @@
             <div class="inputs last-block">
               <div>
                 <label>Mobile number</label>
+
                 <input class="back-gray" placeholder="As per records" disabled>
               </div>
               <div>
@@ -213,6 +218,7 @@
 
         </div>
       </mat-step>
+
       <!--  Step 3 -->
       <mat-step>
         <ng-template matStepLabel>Company details</ng-template>
@@ -238,7 +244,7 @@
               <div>
                 <label>Constitution</label>
                 <input class="back-gray" placeholder="Use ACRA's model constitution at the time of incorporation"
-                  disabled>
+                       disabled>
               </div>
             </div>
 
@@ -285,24 +291,27 @@
         </div>
 
       </mat-step>
+
+      <!-- Step 4 -->
       <mat-step>
         <ng-template matStepLabel>Confirmation</ng-template>
         <div formGroupName="confirmation">
-          <span>Step 4</span>
           <mat-form-field>
             <input matInput formControlName="input4">
           </mat-form-field>
           <button matStepperNext mat-raised-button color="primary">Next</button>
         </div>
       </mat-step>
+
+      <!-- Step 5 -->
       <mat-step>
         <ng-template matStepLabel>Payment</ng-template>
         <div formGroupName="payment">
           <span>Step 5</span>
           <ngx-paypal [config]="payPalConfig"></ngx-paypal>
-<!--          <mat-form-field>-->
-<!--            <input matInput formControlName="input5">-->
-<!--          </mat-form-field>-->
+          <!--          <mat-form-field>-->
+          <!--            <input matInput formControlName="input5">-->
+          <!--          </mat-form-field>-->
         </div>
         <p>You are now done.</p>
         <div>

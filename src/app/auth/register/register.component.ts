@@ -13,6 +13,8 @@ export class RegisterComponent implements OnInit {
 
   registrationForm: FormGroup;
   payPalConfig ?: IPayPalConfig;
+  defaultCountry = 'sg';
+  allowedCountries = ['ie', 'in', 'ca', 'us', 'sg', 'gb'] as any;
 
   constructor(
     private fb: FormBuilder,
@@ -22,7 +24,7 @@ export class RegisterComponent implements OnInit {
       companyInfo:
         this.fb.group({input1: []}),
       personalInfo:
-        this.fb.group({input2: []}),
+        this.fb.group({input2: [], phone: []}),
       companyDetails:
         this.fb.group({input3: []}),
       confirmation:
@@ -48,6 +50,10 @@ export class RegisterComponent implements OnInit {
       this.dialog.open(ShareholdingDialogComponent, {width: '400', height: '480'})
     }
 
+  }
+
+  changedCountry(e) {
+    console.log(e.target.value)
   }
 
   private initConfig(): void {
