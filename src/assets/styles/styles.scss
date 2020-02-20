@@ -1,37 +1,46 @@
 @import './mixins';
 @import 'variables';
 @import "media";
+
 html, body, p, h1, h2, h3, h4, ul, input, button {
-  margin: 0 ;
-  padding: 0 ;
+  margin: 0;
+  padding: 0;
 }
+
 input, button {
   outline: none;
   border: none;
 }
+
 button:hover {
   outline: none;
   cursor: pointer;
 }
+
 a, a:hover {
   text-decoration: none;
 }
+
 button:active, button:focus {
   outline: none !important;
 }
+
 select {
   outline: none;
 }
+
 @font-face {
-  src:url('src/assets/fonts/Ubuntu-B.ttf') format('truetype');
+  src: url('src/assets/fonts/Ubuntu-B.ttf') format('truetype');
   font-family: 'Ubuntu-Bold';
 }
+
 @font-face {
-  src:url('src/assets/fonts/Ubuntu-M.ttf') format('truetype');
+  src: url('src/assets/fonts/Ubuntu-M.ttf') format('truetype');
   font-family: 'Ubuntu-Medium';
 }
+
 @font-face {
-  src:url('src/assets/fonts/Ubuntu-R.ttf') format('truetype');
+  src: url('src/assets/fonts/Ubuntu-R.ttf') format('truetype');
   font-family: 'Ubuntu-Regular';
 }
 
@@ -41,16 +50,19 @@ select {
     &:hover {
       background-color: transparent;
     }
+
     &:focus {
       background-color: transparent;
     }
   }
 }
-.mat-stepper-label-position-bottom  {
+
+.mat-stepper-label-position-bottom {
   .mat-horizontal-stepper-header {
     padding: 10px !important;
   }
 }
+
 .mat-step-icon {
   height: 48px !important;
   width: 48px !important;

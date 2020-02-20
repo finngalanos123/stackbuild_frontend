@@ -4,7 +4,8 @@
   </h1>
   <form [formGroup]="registrationForm" class="register-form">
     <mat-horizontal-stepper [linear]="false" labelPosition="bottom" #stepper>
-      <!-- 111111111111 -->
+
+      <!--  Step 1 -->
       <mat-step>
         <ng-template matStepLabel>Company info</ng-template>
         <div class="steps-content">
@@ -16,10 +17,10 @@
               <input placeholder="2nd choice">
             </div>
             <div class="btn-upload">
-              <label for="file-input">
+              <label for="add-choice">
                 <span>+</span> Add choice
               </label>
-              <input id="file-input" type="file">
+              <input type="file" id="add-choice">
             </div>
           </div>
           <h3 class="second-title">Company Type</h3>
@@ -57,10 +58,9 @@
           <button class="btn-prev"><span> &#60; </span>Previous</button>
           <button class="btn-next" matStepperNext>Next<span> > </span></button>
         </div>
-
-  
       </mat-step>
-      <!-- 22222222222222 -->
+
+      <!-- Step 2 -->
       <mat-step>
         <ng-template matStepLabel>Personal info</ng-template>
         <div class="steps-content">
@@ -147,20 +147,20 @@
 
 
             <div class="inputs flex-start">
+              <label>Attach Passport</label>
               <div class="btn-upload-input">
-                <label for="file-input">Attach file<img src="assets/img/attach.png"></label>
-                <input id="file-input" type="file">
+                <label for="attach-passport">Attach file<img src="assets/img/attach.png"></label>
+                <input type="file" id="attach-passport">
               </div>
+
+              <label>Attach Proof of Address</label>
               <div class="btn-upload-input">
-                <label for="file-input">Attach file<img src="assets/img/attach.png"></label>
-                <input id="file-input" type="file">
+                <label for="attach-address">Attach file<img src="assets/img/attach.png"></label>
+                <input type="file" id="attach-address">
               </div>
             </div>
             <div class="btn-upload">
-              <label for="file-input">
                 <span>+</span> Add director/shareholder
-              </label>
-              <input id="file-input" type="file">
             </div>
 
             <h3 class="second-title">Nominee Director</h3>
@@ -201,8 +201,6 @@
                 <input class="back-gray" placeholder="As per records" disabled>
               </div>
             </div>
-
-
           </div>
 
           <div class="foot-btns">
@@ -212,7 +210,7 @@
 
         </div>
       </mat-step>
-      <!-- 333333333333333 -->
+      <!--  Step 3 -->
       <mat-step>
         <ng-template matStepLabel>Company details</ng-template>
         <div class="steps-content">
@@ -236,7 +234,8 @@
               </div>
               <div>
                 <label>Constitution</label>
-                <input class="back-gray" placeholder="Use ACRA's model constitution at the time of incorporation" disabled>
+                <input class="back-gray" placeholder="Use ACRA's model constitution at the time of incorporation"
+                       disabled>
               </div>
             </div>
 
@@ -271,7 +270,7 @@
                 <input class="back-gray" placeholder="31 12 2020" disabled>
               </div>
               <div>
-                
+
               </div>
             </div>
           </div>
