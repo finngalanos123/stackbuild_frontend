@@ -296,10 +296,10 @@
         <ng-template matStepLabel>Payment</ng-template>
         <div formGroupName="payment">
           <span>Step 5</span>
-          <mat-form-field>
-            <input matInput formControlName="input5">
-          </mat-form-field>
-          <button matStepperNext mat-raised-button color="primary">Next</button>
+          <ngx-paypal [config]="payPalConfig"></ngx-paypal>
+<!--          <mat-form-field>-->
+<!--            <input matInput formControlName="input5">-->
+<!--          </mat-form-field>-->
         </div>
         <p>You are now done.</p>
         <div>

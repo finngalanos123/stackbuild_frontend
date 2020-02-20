@@ -5,6 +5,7 @@ import { AuthRoutingModule } from './auth-routing.module';
 import { RegisterComponent } from './register/register.component';
 import { NewCompanyComponent } from './new-company/new-company.component';
 import {SharedModule} from '../shared/shared.module';
+import {NgxPayPalModule} from 'ngx-paypal';
 
 
 @NgModule({
@@ -12,7 +13,8 @@ import {SharedModule} from '../shared/shared.module';
   imports: [
     CommonModule,
     AuthRoutingModule,
-    SharedModule
+    SharedModule,
+    NgxPayPalModule
   ]
 })
 export class AuthModule { }
