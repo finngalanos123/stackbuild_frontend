@@ -9,3 +9,29 @@
     padding-bottom: 7px;
   }
 }
+
+@mixin add-block{
+  height: 40px;
+  border: 1px solid #3B7097;
+  display: grid;
+  color: #3B7097;
+  justify-content: center;
+  align-content: center;
+  border-radius: 50px;
+  font-size: 16px;
+  margin: 20px auto 20px;
+  font-family: 'Ubuntu-Regular';
+  &:hover {
+    cursor: pointer;
+  }
+  label {
+    width: 100%;
+    display: block;
+  }
+  input {
+    display: none;
+  }
+  span {
+    margin-right: 5px;
+  }
+}
