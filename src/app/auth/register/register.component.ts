@@ -1,9 +1,11 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {FormBuilder, FormGroup} from '@angular/forms';
 import {MatDialog} from '@angular/material/dialog';
 import {ShareholdingDialogComponent} from 'src/app/core/components/shareholding-dialog/shareholding-dialog.component';
 import {ICreateOrderRequest, IPayPalConfig} from 'ngx-paypal';
 import {COUNTRY_CODES} from '../../core/constants/country-codes';
+import {SignaturePad} from 'ngx-signaturepad';
+import {DataUrlToFilePipe} from '../../shared/pipes/data-url-to-file.pipe';
 
 @Component({
   selector: 'app-register',
@@ -16,10 +18,18 @@ export class RegisterComponent implements OnInit {
   payPalConfig ?: IPayPalConfig;
   defaultCountry = 'sg';
   allowedCountries = COUNTRY_CODES;
+  signaturePadOptions: Object = { // passed through to szimek/signature_pad constructor
+    'minWidth': 5,
+    'canvasWidth': 200,
+    'canvasHeight': 100,
+  };
+
+  @ViewChild(SignaturePad) sign1: SignaturePad;
 
   constructor(
     private fb: FormBuilder,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private dataURLtoFile: DataUrlToFilePipe
   ) {
     this.registrationForm = this.fb.group({
       companyInfo:
@@ -118,6 +128,21 @@ export class RegisterComponent implements OnInit {
     };
 
 
+  }
+
+  ngAfterViewInit() {
+    this.sign1.set('minWidth', 5);
+    this.sign1.clear();
+  }
+
+  drawComplete(sign, filename) {
+
+    var file = this.dataURLtoFile.transform(sign.toDataURL(),filename +'.jpg');
+    console.log(sign.toDataURL())
+  }
+
+  drawStart() {
+    console.log('begin drawing');
   }
 
 }

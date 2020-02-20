@@ -5,6 +5,10 @@
   <form [formGroup]="registrationForm" class="register-form">
     <mat-horizontal-stepper [linear]="false" labelPosition="bottom" #stepper>
 
+      <ng-template matStepperIcon="edit">
+        <mat-icon>done</mat-icon>
+      </ng-template>
+
       <!--  Step 1 -->
       <mat-step>
         <ng-template matStepLabel>Company info</ng-template>
@@ -298,8 +302,18 @@
           <h3 class="second-title">Confirmation and Signatures</h3>
           <div class="checkbox-input">
             <input type="checkbox" id="checking-here" name="checking-here" value="Bike">
-            <label for="checking-here">By checking here, you agree to our Terms of Service, Privacy Policy and to receive Kimbocorp emails, newsletters & updates.
+            <label for="checking-here">By checking here, you agree to our Terms of Service, Privacy Policy and to
+              receive Kimbocorp emails, newsletters & updates.
               You also acknowledge that Kimbocorp uses cookies to give the best user experience.</label>
+          </div>
+          <div class="signature">
+            <signature-pad [options]="signaturePadOptions" (onBeginEvent)="drawStart()" (onEndEvent)="drawComplete(sign, 'test')"
+                           #sign></signature-pad>
+          </div>
+
+          <div class="foot-btns">
+            <button class="btn-prev"><span> &#60; </span>Previous</button>
+            <button class="btn-next" matStepperNext>Next<span> > </span></button>
           </div>
         </div>
       </mat-step>
