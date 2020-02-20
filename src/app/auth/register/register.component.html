@@ -189,7 +189,6 @@
             <div class="inputs last-block">
               <div>
                 <label>Mobile number</label>
-
                 <input class="back-gray" placeholder="As per records" disabled>
               </div>
               <div>
@@ -295,11 +294,13 @@
       <!-- Step 4 -->
       <mat-step>
         <ng-template matStepLabel>Confirmation</ng-template>
-        <div formGroupName="confirmation">
-          <mat-form-field>
-            <input matInput formControlName="input4">
-          </mat-form-field>
-          <button matStepperNext mat-raised-button color="primary">Next</button>
+        <div class="steps-content">
+          <h3 class="second-title">Confirmation and Signatures</h3>
+          <div class="checkbox-input">
+            <input type="checkbox" id="checking-here" name="checking-here" value="Bike">
+            <label for="checking-here">By checking here, you agree to our Terms of Service, Privacy Policy and to receive Kimbocorp emails, newsletters & updates.
+              You also acknowledge that Kimbocorp uses cookies to give the best user experience.</label>
+          </div>
         </div>
       </mat-step>
 
