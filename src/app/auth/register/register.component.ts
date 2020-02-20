@@ -7,6 +7,7 @@ import {COUNTRY_CODES} from '../../core/constants/country-codes';
 import {SignaturePad} from 'ngx-signaturepad';
 import {DataUrlToFilePipe} from '../../shared/pipes/data-url-to-file.pipe';
 import {NATIONALITIES} from '../../core/constants/nationalities';
+import {INDUSTRIES} from '../../core/constants/industries';
 
 @Component({
   selector: 'app-register',
@@ -20,6 +21,7 @@ export class RegisterComponent implements OnInit {
   defaultCountry = 'sg';
   allowedCountries = COUNTRY_CODES;
   nationalities = NATIONALITIES;
+  industries = INDUSTRIES
   signaturePadOptions: Object = { // passed through to szimek/signature_pad constructor
     'minWidth': 5,
     'canvasWidth': 200,
