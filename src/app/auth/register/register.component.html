@@ -86,10 +86,9 @@
               <div>
                 <label>Nationality</label>
                 <select>
-                  <option>Enter your name as per your passport</option>
-                  <option>Jonh Doe</option>
-                  <option>Mahatma Gandi</option>
-                  <option>Paulo Colyo</option>
+                 <option *ngFor="let nat of nationalities">
+                   {{nat.Nationality}}
+                 </option>
                 </select>
               </div>
               <div>
