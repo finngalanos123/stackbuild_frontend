@@ -39,7 +39,7 @@ input, div {
     touch-action: none;
     border: 1px solid gainsboro;
     width: 420px;
-    height: 220px;
+    height: 280px;
     margin-left: 100px;
     .signature-text {
       color: #2F2E33;
@@ -47,10 +47,18 @@ input, div {
       font-family: 'Ubuntu-Regular';
       text-align: center;
     }
+    .signature-line {
+      width: 80%;
+      height: 1px;
+      background: gainsboro;
+      margin: 0 auto;
+      margin-bottom: 5px;
+    }
     .signature-block {
       display: flex;
-      justify-content: flex-start;
+      justify-content: space-between;
       align-items: center;
+      padding: 0 40px;
     }
   }
   .signature-block {
@@ -357,6 +365,7 @@ input, div {
     .signature {
       margin-bottom: 80px;
       margin-left: 0;
+      height: 305px;
     }
   }
   .signature-block {
