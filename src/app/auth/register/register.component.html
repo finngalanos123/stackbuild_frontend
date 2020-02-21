@@ -75,6 +75,7 @@
           </div>
         </div>
         <div class="foot-btns">
+          <button></button>
           <button class="btn-next" matStepperNext (click)="getCompanyDetailsValue()">Next<span> > </span></button>
         </div>
       </mat-step>
@@ -83,10 +84,7 @@
       <mat-step>
         <ng-template matStepLabel>Personal info</ng-template>
         <div class="steps-content" formGroupName="personalInfo">
-
           <div *ngFor="let c of shareholderCounts">
-
-
             <h3 class="second-title">Director / Shareholder</h3>
             <div class="third-block">
               <div class="inputs">
@@ -103,7 +101,6 @@
                   <input placeholder="Select" type="date" class="">
                 </div>
               </div>
-
               <div class="inputs">
                 <div>
                   <label>Nationality</label>
@@ -126,8 +123,6 @@
                                               [allowedCountries]="allowedCountries"></international-phone-number>
                 </div>
               </div>
-
-
               <div class="inputs">
                 <div>
                   <label>Password</label>
@@ -146,9 +141,7 @@
                   <input placeholder="Postcode">
                 </div>
               </div>
-
               <div class="inputs">
-
                 <div class="director-shareholder">
                   <label>Are you both a director and shareholder?</label>
                   <div class="dir-input">
@@ -174,8 +167,6 @@
                   </select>
                 </div>
               </div>
-
-
               <div class="inputs flex-start">
                 <div class="attach">
                   <label>Attach Passport</label>
@@ -192,52 +183,52 @@
                   </div>
                 </div>
               </div>
+              <a class="add-block add-chocie" (click)="addShareholderCount()">
+                + Add director/shareholder
+              </a>
+              <h3 class="second-title">Nominee Director</h3>
+              <div class="inputs">
+                <div>
+                  <label>First and Last Name</label>
+                  <input class="back-gray" placeholder="As per records" disabled>
+                </div>
+                <div>
+                  <label>Passport Number</label>
+                  <input class="back-gray" placeholder="As per records" disabled>
+                </div>
+                <div>
+                  <label>Passport Expiry</label>
+                  <input class="back-gray" placeholder="As per records" type="date" disabled>
+                </div>
+              </div>
+              <div class="inputs last-block">
+                <div>
+                  <label>Mobile number</label>
+                  <input class="back-gray" placeholder="As per records" disabled>
+                </div>
+                <div>
+                  <label>Email address</label>
+                  <input class="back-gray" placeholder="As per records" disabled>
+                </div>
+                <div>
+                  <label>Residential address</label>
+                  <input class="back-gray" placeholder="As per records" disabled>
+                </div>
+                <div>
+                  <label class="dot-color">.</label>
+                  <input class="back-gray" placeholder="As per records" disabled>
+                </div>
+                <div>
+                  <label class="dot-color">.</label>
+                  <input class="back-gray" placeholder="As per records" disabled>
+                </div>
+              </div>
             </div>
           </div>
 
 
-          <a class="add-block add-chocie" (click)="addShareholderCount()">
-            + Add director/shareholder
-          </a>
 
-          <h3 class="second-title">Nominee Director</h3>
-          <div class="inputs">
-            <div>
-              <label>First and Last Name</label>
-              <input class="back-gray" placeholder="As per records" disabled>
-            </div>
-            <div>
-              <label>Passport Number</label>
-              <input class="back-gray" placeholder="As per records" disabled>
-            </div>
-            <div>
-              <label>Passport Expiry</label>
-              <input class="back-gray" placeholder="As per records" type="date" disabled>
-            </div>
-          </div>
 
-          <div class="inputs last-block">
-            <div>
-              <label>Mobile number</label>
-              <input class="back-gray" placeholder="As per records" disabled>
-            </div>
-            <div>
-              <label>Email address</label>
-              <input class="back-gray" placeholder="As per records" disabled>
-            </div>
-            <div>
-              <label>Residential address</label>
-              <input class="back-gray" placeholder="As per records" disabled>
-            </div>
-            <div>
-              <label class="dot-color">.</label>
-              <input class="back-gray" placeholder="As per records" disabled>
-            </div>
-            <div>
-              <label class="dot-color">.</label>
-              <input class="back-gray" placeholder="As per records" disabled>
-            </div>
-          </div>
         </div>
 
         <div class="foot-btns">
