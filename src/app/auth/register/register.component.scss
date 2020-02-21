@@ -201,14 +201,40 @@ input, div {
             width: 100% !important;
           }
         }
-
+        .director-shareholder-for-radio {
+          display: flex;
+          justify-content: space-between;
+          width: 100%;
+          .first-div  {
+            width: 68%;
+          }
+          .second-div  {
+            width: 32%;
+          }
+        }
         .director-shareholder {
           input {
             width: 18px;
             height: 18px;
             margin-right: 9px;
           }
-
+          .mat-radio-group {
+            width: 97%;
+            display: flex;
+            justify-content: space-between;
+            .mat-radio-button {
+              width: 46%;
+              border: 1px solid #D0D0D0;
+              height: 40px;
+              align-items: center;
+              box-sizing: border-box;
+              color: #2F2E33;
+              display: flex;
+              font-size: 12px;
+              padding-left: 20px;
+              font-family: "Ubuntu-Regular";
+            }
+          }
           .dir-input {
             width: 100%;
             border: 1px solid #D0D0D0;
@@ -330,7 +356,6 @@ input, div {
 @media(max-width: 992px) {
   .register {
     padding: 10px;
-
     .register-title {
       font-size: 21px;
     }
@@ -360,9 +385,17 @@ input, div {
           }
         }
       }
-
       .third-block {
         .inputs {
+          .director-shareholder-for-radio {
+            flex-direction: column;
+            .first-div {
+              width: 100%;
+            }
+            .second-div {
+              margin-top: 20px;
+            }
+          }
           .director-shareholder {
             .dir-input {
               padding-left: 8px;
@@ -403,13 +436,11 @@ input, div {
           margin-bottom: 20px;
           flex-direction: column;
         }
-
         .hr-input {
           div {
             width: 46%;
             padding-left: 4px;
           }
-
           input {
             width: 16px;
             height: 16px;
@@ -417,9 +448,24 @@ input, div {
           }
         }
       }
-
       .third-block {
         .inputs {
+          .attach {
+            width: 95%;
+          }
+          .director-shareholder {
+            .mat-radio-group {
+              .mat-radio-button {
+                width: 95%;
+                box-sizing: border-box;
+              }
+            }
+          }
+          .director-shareholder-for-radio {
+            .second-div {
+              width: 95%;
+            }
+          }
           flex-direction: column;
 
           div {
@@ -555,10 +601,32 @@ input, div {
           div {
             width: 100%;
           }
-
+          .director-shareholder {
+            .mat-radio-group {
+              width: 100%;
+              .mat-radio-button {
+                width: 100%;
+              }
+            }
+          }
+          .attach{
+            width: 100%;
+          }
+          .director-shareholder-for-radio {
+            .second-div {
+              width: 100%;
+            }
+          }
           input {
             padding-left: 6px;
             font-size: 11px;
+            width: 100%;
+          }
+          .postcode-address {
+            width: 100%;
+          }
+          .resid-address {
+            width: 100%;
           }
 
           select {
