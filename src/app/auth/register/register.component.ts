@@ -108,7 +108,7 @@ export class RegisterComponent implements OnInit {
     const companyNameChoiceCountsLen = this.companyNameChoiceCounts.length;
 
     if (companyNameChoiceCountsLen < 5) {
-      this.companyNameChoiceCounts.push(companyNameChoiceCountsLen)
+      this.companyNameChoiceCounts.push(companyNameChoiceCountsLen);
       this.choices.push(this.createChoicesFormGroup())
     }
 

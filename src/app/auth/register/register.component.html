@@ -17,13 +17,13 @@
           <div class="proposed-company-name">
             <h3 class="third-title">Proposed Company Name</h3>
             <div class="inputs" formArrayName="companyNameChoices">
-              <ng-container *ngFor="let c of companyNameChoiceCounts;let ind = index">
+              <ng-container *ngFor="let c of choices;let ind = index">
                 <ng-container [formGroupName]="ind.toString()">
                   <input [placeholder]="'Choice '+(ind+1)" formControlName="name_choice">
                 </ng-container>
               </ng-container>
             </div>
-            <a class="add-block add-chocie" (click)="addCompanyNameChoicesCount()">
+            <a class="add-block add-choice" (click)="addCompanyNameChoicesCount()">
               + Add choice
             </a>
           </div>
@@ -49,6 +49,7 @@
                 </mat-radio-group>
               </div>
             </div>
+
           </div>
         </div>
         <div class="foot-btns">
@@ -161,6 +162,7 @@
               </div>
             </div>
           </div>
+
           <div class="third-block">
               <a class="add-block add-chocie" (click)="addShareholderCount()">
                       + Add director/shareholder
@@ -203,8 +205,6 @@
                 </div>
               </div>
           </div>
-
-
         </div>
         <div class="foot-btns">
           <button class="btn-prev" matStepperPrevious><span> &#60; </span>Previous</button>
@@ -297,14 +297,22 @@
           <div class="signature-block">
             <div class="signature">
               <signature-pad [options]="signaturePadOptions" (onBeginEvent)="drawStart()"
-                             (onEndEvent)="drawComplete(sign, 'test')"
-                             #sign></signature-pad>
+                             (onEndEvent)="drawComplete(sign1, 'test')"
+                             #sign1></signature-pad>
+              <span>Signature: Director/Shareholder 1</span>
+              <button (click)="sign1.clear()" mat-icon-button>
+                <mat-icon>delete</mat-icon>
+              </button>
             </div>
 
             <div class="signature">
               <signature-pad [options]="signaturePadOptions" (onBeginEvent)="drawStart()"
-                             (onEndEvent)="drawComplete(sign, 'test')"
-                             #sign></signature-pad>
+                             (onEndEvent)="drawComplete(sign2, 'test')"
+                             #sign2></signature-pad>
+              <span>Signature: Director/Shareholder 2</span>
+              <button (click)="sign2.clear()" mat-icon-button>
+                <mat-icon>delete</mat-icon>
+              </button>
             </div>
           </div>
 
