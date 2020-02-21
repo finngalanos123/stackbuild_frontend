@@ -31,47 +31,24 @@
           <h3 class="third-title">Type of Company</h3>
           <input class="gray-input" placeholder="Private company limited by shares" disabled>
           <div class="horizontal-blocks">
-
             <div class="hr-block">
               <h3 class="third-title">Have you obtained approval from relevant authorities?</h3>
               <div class="hr-input">
-
                 <mat-radio-group aria-label="Select an option">
                   <mat-radio-button value="yes">Yes</mat-radio-button>
                   <mat-radio-button value="no">No</mat-radio-button>
                 </mat-radio-group>
-
-
-<!--                <div>-->
-<!--                  <input type="radio" name="yes-no" value="yes">Yes<br>-->
-<!--                </div>-->
-<!--                <div>-->
-<!--                  <input type="radio" name="yes-no" value="no"> No, not required<br>-->
-<!--                </div>-->
               </div>
             </div>
-
             <div class="hr-block">
               <h3 class="third-title">Will this new company take over another company?</h3>
               <div class="hr-input">
-
-
-
                 <mat-radio-group aria-label="Select an option">
                   <mat-radio-button value="later">Yes, maybe later</mat-radio-button>
                   <mat-radio-button value="not">No, not now</mat-radio-button>
                 </mat-radio-group>
-
-<!--                <div>-->
-<!--                  <input type="radio" name="later-not" value="later">Yes, maybe later<br>-->
-<!--                  <mat-radio-button></mat-radio-button>-->
-<!--                </div>-->
-<!--                <div>-->
-<!--                  <input type="radio" name="later-not" value="not">No, not now<br>-->
-<!--                </div>-->
               </div>
             </div>
-
           </div>
         </div>
         <div class="foot-btns">
@@ -148,14 +125,12 @@
                     <input type="radio" name="yes-no" value="yes">Yes, I'm both the director and shareholder<br>
                   </div>
                 </div>
-
                 <div class="director-shareholder">
                   <label class="dot-color">.</label>
                   <div class="dir-input">
                     <input type="radio" name="yes-no" value="no">No, I'm the director but not a shareholder<br>
                   </div>
                 </div>
-
                 <div>
                   <label>Shareholding Percentage (%)</label>
                   <select (change)="shareholdingChange($event)">
@@ -225,18 +200,11 @@
               </div>
             </div>
           </div>
-
-
-
-
         </div>
-
         <div class="foot-btns">
           <button class="btn-prev" matStepperPrevious><span> &#60; </span>Previous</button>
           <button class="btn-next" matStepperNext>Next<span> > </span></button>
         </div>
-
-
       </mat-step>
 
       <!--  Step 3 -->
