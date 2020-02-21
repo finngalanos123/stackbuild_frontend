@@ -46,8 +46,7 @@ export class RegisterComponent implements OnInit {
         this.fb.group({input4: []}),
       payment:
         this.fb.group({input5: []}),
-
-    })
+    });
   }
 
   ngOnInit(): void {

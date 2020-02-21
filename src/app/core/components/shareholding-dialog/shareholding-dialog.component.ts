@@ -10,6 +10,7 @@ export class ShareholdingDialogComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+
   }
 
 }

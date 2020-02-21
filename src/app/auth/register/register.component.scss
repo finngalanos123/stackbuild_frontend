@@ -9,6 +9,10 @@ input, div {
   max-width: 1200px;
   margin: 0 auto;
   padding: 40px;
+  .payment {
+    margin-top: 80px;
+    text-align: center;
+  }
 
   .register-title {
     @include title-style;
@@ -21,7 +25,7 @@ input, div {
   .signature {
     touch-action: none;
     border: 1px solid gainsboro;
-    width: 400px;
+    width: 420px;
     height: 220px;
     margin-left: 100px;
   }
@@ -320,6 +324,7 @@ input, div {
 }
 
 @media(max-width: 992px) {
+
   .register {
     padding: 10px;
 
@@ -328,6 +333,12 @@ input, div {
     }
 
     .steps-content {
+      .checkbox-input {
+        font-size: 13px;
+        max-width: 100%;
+        margin: 40px 0;
+        margin-left: 0;
+      }
       .horizontal-blocks {
         .hr-block {
           width: 49%;
@@ -477,7 +488,9 @@ input, div {
   .register {
     margin-top: 67px;
     padding: 8px;
-
+    .signature-block {
+      overflow-x: scroll;
+    }
     .register-title {
       font-size: 19px;
       line-height: 24px;
