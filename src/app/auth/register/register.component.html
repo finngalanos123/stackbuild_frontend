@@ -17,13 +17,13 @@
           <div class="proposed-company-name">
             <h3 class="third-title">Proposed Company Name</h3>
             <div class="inputs" formArrayName="companyNameChoices">
-              <ng-container *ngFor="let c of companyNameChoiceCounts;let ind = index">
+              <ng-container *ngFor="let c of choices;let ind = index">
                 <ng-container [formGroupName]="ind.toString()">
                   <input [placeholder]="'Choice '+(ind+1)" formControlName="name_choice">
                 </ng-container>
               </ng-container>
             </div>
-            <a class="add-block add-chocie" (click)="addCompanyNameChoicesCount()">
+            <a class="add-block add-choice" (click)="addCompanyNameChoicesCount()">
               + Add choice
             </a>
           </div>
@@ -42,12 +42,12 @@
                 </mat-radio-group>
 
 
-<!--                <div>-->
-<!--                  <input type="radio" name="yes-no" value="yes">Yes<br>-->
-<!--                </div>-->
-<!--                <div>-->
-<!--                  <input type="radio" name="yes-no" value="no"> No, not required<br>-->
-<!--                </div>-->
+                <!--                <div>-->
+                <!--                  <input type="radio" name="yes-no" value="yes">Yes<br>-->
+                <!--                </div>-->
+                <!--                <div>-->
+                <!--                  <input type="radio" name="yes-no" value="no"> No, not required<br>-->
+                <!--                </div>-->
               </div>
             </div>
 
@@ -56,19 +56,18 @@
               <div class="hr-input">
 
 
-
                 <mat-radio-group aria-label="Select an option">
                   <mat-radio-button value="later">Yes, maybe later</mat-radio-button>
                   <mat-radio-button value="not">No, not now</mat-radio-button>
                 </mat-radio-group>
 
-<!--                <div>-->
-<!--                  <input type="radio" name="later-not" value="later">Yes, maybe later<br>-->
-<!--                  <mat-radio-button></mat-radio-button>-->
-<!--                </div>-->
-<!--                <div>-->
-<!--                  <input type="radio" name="later-not" value="not">No, not now<br>-->
-<!--                </div>-->
+                <!--                <div>-->
+                <!--                  <input type="radio" name="later-not" value="later">Yes, maybe later<br>-->
+                <!--                  <mat-radio-button></mat-radio-button>-->
+                <!--                </div>-->
+                <!--                <div>-->
+                <!--                  <input type="radio" name="later-not" value="not">No, not now<br>-->
+                <!--                </div>-->
               </div>
             </div>
 
@@ -196,7 +195,7 @@
           </div>
 
 
-          <a class="add-block add-chocie" (click)="addShareholderCount()">
+          <a class="add-block add-choice" (click)="addShareholderCount()">
             + Add director/shareholder
           </a>
 
@@ -333,14 +332,20 @@
           <div class="signature-block">
             <div class="signature">
               <signature-pad [options]="signaturePadOptions" (onBeginEvent)="drawStart()"
-                             (onEndEvent)="drawComplete(sign, 'test')"
-                             #sign></signature-pad>
+                             (onEndEvent)="drawComplete(sign1, 'test')"
+                             #sign1></signature-pad>
+              <button (click)="sign1.clear()" mat-icon-button>
+                <mat-icon>delete</mat-icon>
+              </button>
             </div>
 
             <div class="signature">
               <signature-pad [options]="signaturePadOptions" (onBeginEvent)="drawStart()"
-                             (onEndEvent)="drawComplete(sign, 'test')"
-                             #sign></signature-pad>
+                             (onEndEvent)="drawComplete(sign2, 'test')"
+                             #sign2></signature-pad>
+              <button (click)="sign2.clear()" mat-icon-button>
+                <mat-icon>delete</mat-icon>
+              </button>
             </div>
           </div>
 
