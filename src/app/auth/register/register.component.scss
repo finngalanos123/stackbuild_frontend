@@ -41,6 +41,17 @@ input, div {
     width: 420px;
     height: 220px;
     margin-left: 100px;
+    .signature-text {
+      color: #2F2E33;
+      font-size: 16px;
+      font-family: 'Ubuntu-Regular';
+      text-align: center;
+    }
+    .signature-block {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+    }
   }
   .signature-block {
     display: flex;
@@ -344,7 +355,7 @@ input, div {
 @media(max-width: 1200px) {
   .register {
     .signature {
-      margin-bottom: 20px;
+      margin-bottom: 80px;
       margin-left: 0;
     }
   }

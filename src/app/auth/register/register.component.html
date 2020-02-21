@@ -299,20 +299,25 @@
               <signature-pad [options]="signaturePadOptions" (onBeginEvent)="drawStart()"
                              (onEndEvent)="drawComplete(sign1, 'test')"
                              #sign1></signature-pad>
-              <span>Signature: Director/Shareholder 1</span>
-              <button (click)="sign1.clear()" mat-icon-button>
-                <mat-icon>delete</mat-icon>
-              </button>
+
+               <div class="signature-block">
+                  <span class="signature-text">Signature: Director/Shareholder 1</span>
+                   <button (click)="sign1.clear()" mat-icon-button>
+                     <mat-icon>delete</mat-icon>
+                   </button>
+                </div>
             </div>
 
             <div class="signature">
               <signature-pad [options]="signaturePadOptions" (onBeginEvent)="drawStart()"
                              (onEndEvent)="drawComplete(sign2, 'test')"
                              #sign2></signature-pad>
-              <span>Signature: Director/Shareholder 2</span>
-              <button (click)="sign2.clear()" mat-icon-button>
-                <mat-icon>delete</mat-icon>
-              </button>
+              <div class="signature-block">
+                   <span class="signature-text">Signature: Director/Shareholder 2</span>
+                   <button (click)="sign2.clear()" mat-icon-button>
+                     <mat-icon>delete</mat-icon>
+                   </button>
+              </div>
             </div>
           </div>
 
