@@ -1,9 +1,9 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
-import {FormBuilder, FormGroup} from '@angular/forms';
+import {FormArray, FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {MatDialog} from '@angular/material/dialog';
 import {ShareholdingDialogComponent} from 'src/app/core/components/shareholding-dialog/shareholding-dialog.component';
 import {ICreateOrderRequest, IPayPalConfig} from 'ngx-paypal';
-import {COUNTRY_CODES} from '../../core/constants/country-codes';
+import {COUNTRY_CODES, DEFAULT_COUNTRY} from '../../core/constants/country-codes';
 import {SignaturePad} from 'ngx-signaturepad';
 import {DataUrlToFilePipe} from '../../shared/pipes/data-url-to-file.pipe';
 import {NATIONALITIES} from '../../core/constants/nationalities';
@@ -18,15 +18,18 @@ export class RegisterComponent implements OnInit {
 
   registrationForm: FormGroup;
   payPalConfig ?: IPayPalConfig;
-  defaultCountry = 'sg';
+  defaultCountry = DEFAULT_COUNTRY;
   allowedCountries = COUNTRY_CODES;
   nationalities = NATIONALITIES;
-  industries = INDUSTRIES
-  signaturePadOptions: Object = { // passed through to szimek/signature_pad constructor
+  industries = INDUSTRIES;
+  signaturePadOptions: Object = {
     'minWidth': 5,
     'canvasWidth': 420,
     'canvasHeight': 220,
   };
+
+  shareholderCounts = [0];
+  companyNameChoiceCounts = [1, 2];
 
   @ViewChild(SignaturePad) sign1: SignaturePad;
 
@@ -35,9 +38,26 @@ export class RegisterComponent implements OnInit {
     private dialog: MatDialog,
     private dataURLtoFile: DataUrlToFilePipe
   ) {
+
+
+  }
+
+  ngOnInit(): void {
+    this.initConfig();
+
+
     this.registrationForm = this.fb.group({
       companyInfo:
-        this.fb.group({input1: []}),
+        this.fb.group({
+          companyNameChoices:
+          // this.fb.group({
+          //   name_choice_1: this.fb.control('OK', Validators.required), name_choice_2:this.fb.control('', Validators.required)
+          // })
+            this.fb.array([
+              this.createChoicesFormGroup(),
+              this.createChoicesFormGroup()
+            ])
+        }),
       personalInfo:
         this.fb.group({input2: [], phone: []}),
       companyDetails:
@@ -48,15 +68,21 @@ export class RegisterComponent implements OnInit {
         this.fb.group({input5: []}),
 
     })
+
+    console.log(this.registrationForm.value)
+    console.log(this.choices)
   }
 
-  ngOnInit(): void {
-    this.initConfig();
-    console.log(this.registrationForm.value)
-  }
 
   saveInfo() {
     console.log(this.registrationForm.value)
+  }
+
+  createChoicesFormGroup(): FormGroup {
+    return this.fb.group({
+        name_choice: ['', [Validators.required]]
+      }
+    );
   }
 
   shareholdingChange(e) {
@@ -64,6 +90,37 @@ export class RegisterComponent implements OnInit {
     if (e.target.value == "< 100%") {
       this.dialog.open(ShareholdingDialogComponent, {width: '400', height: '480'})
     }
+
+  }
+
+  addShareholderCount() {
+    const shareholderCountsLen = this.shareholderCounts.length;
+
+    if (shareholderCountsLen < 5) {
+
+      this.shareholderCounts.push(shareholderCountsLen)
+    }
+
+
+  }
+
+  addCompanyNameChoicesCount() {
+    const companyNameChoiceCountsLen = this.companyNameChoiceCounts.length;
+
+    if (companyNameChoiceCountsLen < 5) {
+      this.companyNameChoiceCounts.push(companyNameChoiceCountsLen)
+      this.choices.push(this.createChoicesFormGroup())
+    }
+
+  }
+
+  getCompanyDetailsValue() {
+    // for(let c in this.registrationForm.get('companyInfo').controls.companyNameChoices.controls){
+    //   console.log(c)
+    //   console.log(this.registrationForm.get('companyInfo').controls)
+    // }
+    console.log(this.registrationForm.value)
+    console.log(this.choices)
 
   }
 
@@ -149,4 +206,10 @@ export class RegisterComponent implements OnInit {
     console.log('begin drawing');
   }
 
+
+  get choices() {
+    const companyInfo = this.registrationForm.get('companyInfo') as FormArray;
+    const companyInfoControls = companyInfo['controls'] as any;
+    return companyInfoControls.companyNameChoices.controls;
+  }
 }

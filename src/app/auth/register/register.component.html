@@ -12,15 +12,18 @@
       <!--  Step 1 -->
       <mat-step>
         <ng-template matStepLabel>Company info</ng-template>
-        <div class="steps-content">
+        <div class="steps-content" formGroupName="companyInfo">
           <h3 class="second-title">Company Name</h3>
           <div class="proposed-company-name">
             <h3 class="third-title">Proposed Company Name</h3>
-            <div class="inputs">
-              <input placeholder="1st choice">
-              <input placeholder="2nd choice">
+            <div class="inputs" formArrayName="companyNameChoices">
+              <ng-container *ngFor="let c of companyNameChoiceCounts;let ind = index">
+                <ng-container [formGroupName]="ind.toString()">
+                  <input [placeholder]="'Choice '+(ind+1)" formControlName="name_choice">
+                </ng-container>
+              </ng-container>
             </div>
-            <a class="add-block add-chocie">
+            <a class="add-block add-chocie" (click)="addCompanyNameChoicesCount()">
               + Add choice
             </a>
           </div>
@@ -32,24 +35,40 @@
             <div class="hr-block">
               <h3 class="third-title">Have you obtained approval from relevant authorities?</h3>
               <div class="hr-input">
-                <div>
-                  <input type="radio" name="yes-no" value="yes">Yes<br>
-                </div>
-                <div>
-                  <input type="radio" name="yes-no" value="no"> No, not required<br>
-                </div>
+
+                <mat-radio-group aria-label="Select an option">
+                  <mat-radio-button value="yes">Yes</mat-radio-button>
+                  <mat-radio-button value="no">No</mat-radio-button>
+                </mat-radio-group>
+
+
+<!--                <div>-->
+<!--                  <input type="radio" name="yes-no" value="yes">Yes<br>-->
+<!--                </div>-->
+<!--                <div>-->
+<!--                  <input type="radio" name="yes-no" value="no"> No, not required<br>-->
+<!--                </div>-->
               </div>
             </div>
 
             <div class="hr-block">
               <h3 class="third-title">Will this new company take over another company?</h3>
               <div class="hr-input">
-                <div>
-                  <input type="radio" name="later-not" value="later">Yes, maybe later<br>
-                </div>
-                <div>
-                  <input type="radio" name="later-not" value="not">No, not now<br>
-                </div>
+
+
+
+                <mat-radio-group aria-label="Select an option">
+                  <mat-radio-button value="later">Yes, maybe later</mat-radio-button>
+                  <mat-radio-button value="not">No, not now</mat-radio-button>
+                </mat-radio-group>
+
+<!--                <div>-->
+<!--                  <input type="radio" name="later-not" value="later">Yes, maybe later<br>-->
+<!--                  <mat-radio-button></mat-radio-button>-->
+<!--                </div>-->
+<!--                <div>-->
+<!--                  <input type="radio" name="later-not" value="not">No, not now<br>-->
+<!--                </div>-->
               </div>
             </div>
 
@@ -57,7 +76,7 @@
         </div>
         <div class="foot-btns">
           <button class="btn-prev"><span> &#60; </span>Previous</button>
-          <button class="btn-next" matStepperNext>Next<span> > </span></button>
+          <button class="btn-next" matStepperNext (click)="getCompanyDetailsValue()">Next<span> > </span></button>
         </div>
       </mat-step>
 
@@ -65,166 +84,175 @@
       <mat-step>
         <ng-template matStepLabel>Personal info</ng-template>
         <div class="steps-content" formGroupName="personalInfo">
-          <h3 class="second-title">Director / Shareholder</h3>
-          <div class="third-block">
-            <div class="inputs">
-              <div>
-                <label>First and Last Name</label>
-                <input placeholder="Enter your name as per your passport">
-              </div>
-              <div>
-                <label>Passport Number</label>
-                <input placeholder="Enter a valid passport number">
-              </div>
-              <div>
-                <label>Passport Expiry</label>
-                <input placeholder="Select" type="date" class="">
-              </div>
-            </div>
 
-            <div class="inputs">
-              <div>
-                <label>Nationality</label>
-                <select>
-                 <option *ngFor="let nat of nationalities">
-                   {{nat.Nationality}}
-                 </option>
-                </select>
-              </div>
-              <div>
-                <label>Date of Birth</label>
-                <input placeholder="Select" type="date" class="">
-              </div>
-              <div class="international-number">
-                <label>Mobile number</label>
-                <international-phone-number placeholder="Phone number" class="phones" formControlName="phone" [maxlength]="20"
-                                            [defaultCountry]="defaultCountry" [required]="true"
-                                            (change)="changedCountry($event)"
-                                            [allowedCountries]="allowedCountries"></international-phone-number>
-              </div>
-            </div>
+          <div *ngFor="let c of shareholderCounts">
 
-            <div class="inputs">
-              <div>
-                <label>Password</label>
-                <input placeholder="At least ten characters">
-              </div>
-              <div class="resid-address">
-                <label>Residential address</label>
-                <input placeholder="Address line 1">
-              </div>
-              <div class="resid-address">
-                <label class="dot-color">.</label>
-                <input placeholder="Address line 2">
-              </div>
-              <div class="postcode-address">
-                <label class="dot-color">.</label>
-                <input placeholder="Postcode">
-              </div>
-            </div>
 
-            <div class="inputs">
-
-              <div class="director-shareholder">
-                <label>Are you both a director and shareholder?</label>
-                <div class="dir-input">
-                  <input type="radio" name="yes-no" value="yes">Yes, I'm both the director and shareholder<br>
+            <h3 class="second-title">Director / Shareholder</h3>
+            <div class="third-block">
+              <div class="inputs">
+                <div>
+                  <label>First and Last Name</label>
+                  <input placeholder="Enter your name as per your passport">
+                </div>
+                <div>
+                  <label>Passport Number</label>
+                  <input placeholder="Enter a valid passport number">
+                </div>
+                <div>
+                  <label>Passport Expiry</label>
+                  <input placeholder="Select" type="date" class="">
                 </div>
               </div>
 
-              <div class="director-shareholder">
-                <label class="dot-color">.</label>
-                <div class="dir-input">
-                  <input type="radio" name="yes-no" value="no">No, I'm the director but not a shareholder<br>
+              <div class="inputs">
+                <div>
+                  <label>Nationality</label>
+                  <select>
+                    <option *ngFor="let nat of nationalities">
+                      {{nat.Nationality}}
+                    </option>
+                  </select>
+                </div>
+                <div>
+                  <label>Date of Birth</label>
+                  <input placeholder="Select" type="date" class="">
+                </div>
+                <div class="international-number">
+                  <label>Mobile number</label>
+                  <international-phone-number placeholder="Phone number" class="phones" formControlName="phone"
+                                              [maxlength]="20"
+                                              [defaultCountry]="defaultCountry" [required]="true"
+                                              (change)="changedCountry($event)"
+                                              [allowedCountries]="allowedCountries"></international-phone-number>
                 </div>
               </div>
 
-              <div>
-                <label>Shareholding Percentage (%)</label>
-                <select (change)="shareholdingChange($event)">
-                  <option disabled selected hidden>Select</option>
-                  <option>100%</option>
-                  <option>
-                    < 100%
-                  </option>
-                </select>
-              </div>
-            </div>
 
-
-            <div class="inputs flex-start">
-              <div class="attach">
-                <label>Attach Passport</label>
-                <div class="btn-upload-input">
-                  <label for="attach-passport">Attach file<img src="assets/img/attach.png"></label>
-                  <input type="file" id="attach-passport">
+              <div class="inputs">
+                <div>
+                  <label>Password</label>
+                  <input placeholder="At least ten characters">
+                </div>
+                <div class="resid-address">
+                  <label>Residential address</label>
+                  <input placeholder="Address line 1">
+                </div>
+                <div class="resid-address">
+                  <label class="dot-color">.</label>
+                  <input placeholder="Address line 2">
+                </div>
+                <div class="postcode-address">
+                  <label class="dot-color">.</label>
+                  <input placeholder="Postcode">
                 </div>
               </div>
-              <div class="attach">
-                <label>Attach Proof of Address</label>
-                <div class="btn-upload-input">
-                  <label for="attach-address">Attach file<img src="assets/img/attach.png"></label>
-                  <input type="file" id="attach-address">
+
+              <div class="inputs">
+
+                <div class="director-shareholder">
+                  <label>Are you both a director and shareholder?</label>
+                  <div class="dir-input">
+                    <input type="radio" name="yes-no" value="yes">Yes, I'm both the director and shareholder<br>
+                  </div>
+                </div>
+
+                <div class="director-shareholder">
+                  <label class="dot-color">.</label>
+                  <div class="dir-input">
+                    <input type="radio" name="yes-no" value="no">No, I'm the director but not a shareholder<br>
+                  </div>
+                </div>
+
+                <div>
+                  <label>Shareholding Percentage (%)</label>
+                  <select (change)="shareholdingChange($event)">
+                    <option disabled selected hidden>Select</option>
+                    <option>100%</option>
+                    <option>
+                      < 100%
+                    </option>
+                  </select>
                 </div>
               </div>
-            </div>
 
-            <a class="add-block add-chocie">
-              + Add director/shareholder
-            </a>
 
-            <h3 class="second-title">Nominee Director</h3>
-            <div class="inputs">
-              <div>
-                <label>First and Last Name</label>
-                <input class="back-gray" placeholder="As per records" disabled>
-              </div>
-              <div>
-                <label>Passport Number</label>
-                <input class="back-gray" placeholder="As per records" disabled>
-              </div>
-              <div>
-                <label>Passport Expiry</label>
-                <input class="back-gray" placeholder="As per records" type="date" disabled>
-              </div>
-            </div>
-
-            <div class="inputs last-block">
-              <div>
-                <label>Mobile number</label>
-                <input class="back-gray" placeholder="As per records" disabled>
-              </div>
-              <div>
-                <label>Email address</label>
-                <input class="back-gray" placeholder="As per records" disabled>
-              </div>
-              <div>
-                <label>Residential address</label>
-                <input class="back-gray" placeholder="As per records" disabled>
-              </div>
-              <div>
-                <label class="dot-color">.</label>
-                <input class="back-gray" placeholder="As per records" disabled>
-              </div>
-              <div>
-                <label class="dot-color">.</label>
-                <input class="back-gray" placeholder="As per records" disabled>
+              <div class="inputs flex-start">
+                <div class="attach">
+                  <label>Attach Passport</label>
+                  <div class="btn-upload-input">
+                    <label for="attach-passport">Attach file<img src="assets/img/attach.png"></label>
+                    <input type="file" id="attach-passport">
+                  </div>
+                </div>
+                <div class="attach">
+                  <label>Attach Proof of Address</label>
+                  <div class="btn-upload-input">
+                    <label for="attach-address">Attach file<img src="assets/img/attach.png"></label>
+                    <input type="file" id="attach-address">
+                  </div>
+                </div>
               </div>
             </div>
           </div>
 
-          <div class="foot-btns">
-            <button class="btn-prev"><span> &#60; </span>Previous</button>
-            <button class="btn-next" matStepperNext>Next<span> > </span></button>
+
+          <a class="add-block add-chocie" (click)="addShareholderCount()">
+            + Add director/shareholder
+          </a>
+
+          <h3 class="second-title">Nominee Director</h3>
+          <div class="inputs">
+            <div>
+              <label>First and Last Name</label>
+              <input class="back-gray" placeholder="As per records" disabled>
+            </div>
+            <div>
+              <label>Passport Number</label>
+              <input class="back-gray" placeholder="As per records" disabled>
+            </div>
+            <div>
+              <label>Passport Expiry</label>
+              <input class="back-gray" placeholder="As per records" type="date" disabled>
+            </div>
           </div>
 
+          <div class="inputs last-block">
+            <div>
+              <label>Mobile number</label>
+              <input class="back-gray" placeholder="As per records" disabled>
+            </div>
+            <div>
+              <label>Email address</label>
+              <input class="back-gray" placeholder="As per records" disabled>
+            </div>
+            <div>
+              <label>Residential address</label>
+              <input class="back-gray" placeholder="As per records" disabled>
+            </div>
+            <div>
+              <label class="dot-color">.</label>
+              <input class="back-gray" placeholder="As per records" disabled>
+            </div>
+            <div>
+              <label class="dot-color">.</label>
+              <input class="back-gray" placeholder="As per records" disabled>
+            </div>
+          </div>
         </div>
+
+        <div class="foot-btns">
+          <button class="btn-prev"><span> &#60; </span>Previous</button>
+          <button class="btn-next" matStepperNext>Next<span> > </span></button>
+        </div>
+
+
       </mat-step>
 
       <!--  Step 3 -->
       <mat-step>
         <ng-template matStepLabel>Company details</ng-template>
-        <div class="steps-content">
+        <div class="steps-content" formGroupName="companyDetails">
           <h3 class="second-title">Business Information</h3>
           <div class="third-block">
             <div class="inputs two-blocks">
@@ -305,12 +333,14 @@
           </div>
           <div class="signature-block">
             <div class="signature">
-              <signature-pad [options]="signaturePadOptions" (onBeginEvent)="drawStart()" (onEndEvent)="drawComplete(sign, 'test')"
+              <signature-pad [options]="signaturePadOptions" (onBeginEvent)="drawStart()"
+                             (onEndEvent)="drawComplete(sign, 'test')"
                              #sign></signature-pad>
             </div>
 
             <div class="signature">
-              <signature-pad [options]="signaturePadOptions" (onBeginEvent)="drawStart()" (onEndEvent)="drawComplete(sign, 'test')"
+              <signature-pad [options]="signaturePadOptions" (onBeginEvent)="drawStart()"
+                             (onEndEvent)="drawComplete(sign, 'test')"
                              #sign></signature-pad>
             </div>
           </div>

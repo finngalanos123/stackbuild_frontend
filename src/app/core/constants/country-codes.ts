@@ -1,3 +1,4 @@
+export const DEFAULT_COUNTRY = 'sg';
 export const COUNTRY_CODES = [
   'ax',
   'af',
