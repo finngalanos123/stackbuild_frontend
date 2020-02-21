@@ -67,7 +67,7 @@ export class RegisterComponent implements OnInit {
       payment:
         this.fb.group({input5: []}),
 
-    })
+    });
 
     console.log(this.registrationForm.value)
     console.log(this.choices)
