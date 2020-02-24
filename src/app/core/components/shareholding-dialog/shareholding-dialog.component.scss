@@ -1,6 +1,6 @@
 @import 'src/assets/styles/styles';
 .register-dialog {
-    padding: 0 4px;
+    padding: 0 28px;
     box-sizing: border-box;
     .register-dialog-close {
         font-size: 20px;
@@ -28,7 +28,7 @@
             font-family: 'Ubuntu-Medium';
             font-size: 14px;
             margin: 24px 0;
-            
+
         }
         input, select {
             width: 100%;
@@ -56,4 +56,9 @@
         border: 1px solid #D0D0D0;
         float: right;
     }
+}
+@media(max-width: 480px) {
+  .register-dialog {
+    padding: 0;
+  }
 }
