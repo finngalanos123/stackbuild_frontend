@@ -56,10 +56,16 @@ export class RegisterComponent implements OnInit {
             this.fb.array([
               this.createChoicesFormGroup(),
               this.createChoicesFormGroup()
-            ])
+            ]),
+          approval: [false, Validators.required],
+          take_over: [false, Validators.required]
         }),
       personalInfo:
-        this.fb.group({input2: [], phone: []}),
+        this.fb.group({
+          shareHoldersDirs: this.fb.array([
+            this.createShareholdersDirsFormGroup()
+          ]),
+        }),
       companyDetails:
         this.fb.group({input3: []}),
       confirmation:
@@ -69,18 +75,34 @@ export class RegisterComponent implements OnInit {
 
     });
 
-    console.log(this.registrationForm.value)
-    console.log(this.choices)
   }
 
 
   saveInfo() {
-    console.log(this.registrationForm.value)
+    console.log(this.registrationForm.getRawValue())
   }
 
   createChoicesFormGroup(): FormGroup {
     return this.fb.group({
         name_choice: ['', [Validators.required]]
+      }
+    );
+  }
+
+  createShareholdersDirsFormGroup() {
+    return this.fb.group({
+        full_name: ['', Validators.required],
+        passport_number: ['', Validators.required],
+        passport_expiry_date: ['', Validators.required],
+        nationality: ['', Validators.required],
+        birthday: ['', Validators.required],
+        phone_number: ['', Validators.required],
+        password: ['', Validators.required],
+        address_1: ['', Validators.required],
+        address_2: ['', Validators.required],
+        postcode: ['', Validators.required],
+        both_director: ['', Validators.required],
+        shareholding_percentage: ['', Validators.required]
       }
     );
   }
@@ -98,7 +120,9 @@ export class RegisterComponent implements OnInit {
 
     if (shareholderCountsLen < 5) {
 
-      this.shareholderCounts.push(shareholderCountsLen)
+      this.shareholderCounts.push(shareholderCountsLen);
+      this.shareholdersDirs.controls.push(this.createShareholdersDirsFormGroup());
+
     }
 
 
@@ -109,7 +133,8 @@ export class RegisterComponent implements OnInit {
 
     if (companyNameChoiceCountsLen < 5) {
       this.companyNameChoiceCounts.push(companyNameChoiceCountsLen);
-      this.choices.push(this.createChoicesFormGroup())
+      this.choices.controls.push(this.createChoicesFormGroup());
+
     }
 
   }
@@ -119,7 +144,7 @@ export class RegisterComponent implements OnInit {
     //   console.log(c)
     //   console.log(this.registrationForm.get('companyInfo').controls)
     // }
-    console.log(this.registrationForm.value)
+    console.log(this.registrationForm.getRawValue())
     console.log(this.choices)
 
   }
@@ -210,6 +235,12 @@ export class RegisterComponent implements OnInit {
   get choices() {
     const companyInfo = this.registrationForm.get('companyInfo') as FormArray;
     const companyInfoControls = companyInfo['controls'] as any;
-    return companyInfoControls.companyNameChoices.controls;
+    return companyInfoControls.companyNameChoices;
+  }
+
+  get shareholdersDirs() {
+    const companyInfo = this.registrationForm.get('personalInfo') as FormArray;
+    const companyInfoControls = companyInfo['controls'] as any;
+    return companyInfoControls.shareHoldersDirs;
   }
 }
