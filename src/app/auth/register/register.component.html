@@ -290,6 +290,7 @@
           <h3 class="second-title">Confirmation and Signatures</h3>
           <div class="checkbox-input">
             <input type="checkbox" id="checking-here" name="checking-here" value="Bike">
+<!--            <mat-checkbox></mat-checkbox>-->
             <label for="checking-here">By checking here, you agree to our Terms of Service, Privacy Policy and to
               receive Kimbocorp emails, newsletters & updates.
               You also acknowledge that Kimbocorp uses cookies to give the best user experience.</label>
@@ -303,7 +304,7 @@
                <div class="signature-block">
 
                   <span class="signature-text">Signature: Director/Shareholder 1</span>
-                   <button (click)="sign1.clear()" mat-icon-button>
+                   <button (click)="sign1.clear()" mat-icon-button class="clear-signature">
                      <mat-icon>delete</mat-icon>
                    </button>
                 </div>
@@ -317,7 +318,7 @@
               <div class="signature-block">
 
                    <span class="signature-text">Signature: Director/Shareholder 2</span>
-                   <button (click)="sign2.clear()" mat-icon-button>
+                   <button (click)="sign2.clear()" mat-icon-button class="clear-signature">
                      <mat-icon>delete</mat-icon>
                    </button>
               </div>

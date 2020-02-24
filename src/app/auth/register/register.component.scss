@@ -9,14 +9,17 @@ input, div {
   max-width: 1200px;
   margin: 0 auto;
   padding: 40px;
+
   .payment {
     margin-top: 80px;
     text-align: center;
   }
+
   .mat-radio-group {
     width: 100%;
     display: flex;
     justify-content: space-between;
+
     .mat-radio-button {
       width: 45%;
       border: 1px solid #D0D0D0;
@@ -59,6 +62,12 @@ input, div {
       justify-content: space-between;
       align-items: center;
       padding: 0 40px;
+    }
+
+    .clear-signature {
+      mat-icon {
+        color: $red;
+      }
     }
   }
   .signature-block {
@@ -386,8 +395,10 @@ input, div {
         margin: 40px 0;
         margin-left: 0;
       }
+
       .horizontal-blocks {
         flex-direction: column;
+
         .hr-block {
           width: 100%;
           margin-top: 20px;
@@ -565,6 +576,7 @@ input, div {
     .signature-block {
       overflow-x: scroll;
     }
+
     .register-title {
       font-size: 19px;
       line-height: 24px;
