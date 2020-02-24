@@ -223,7 +223,7 @@
                 <label>Principal Business Activities</label>
                 <mat-form-field>
                   <mat-label>Select</mat-label>
-                  <mat-select [formControl]="toppings" multiple>
+                  <mat-select multiple>
                     <mat-option *ngFor="let industry of industries"><span> [{{industry.key}}] </span><span> {{industry.name}} </span></mat-option>
                   </mat-select>
                 </mat-form-field>
