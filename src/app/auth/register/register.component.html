@@ -221,13 +221,14 @@
             <div class="inputs two-blocks">
               <div>
                 <label>Principal Business Activities</label>
-                <select>
-                  <option disabled selected hidden>Select</option>
-                  <option *ngFor="let industry of industries">{{industry}}</option>
-                </select>
+                <mat-form-field>
+                  <mat-label>Select</mat-label>
+                  <mat-select [formControl]="toppings" multiple>
+                    <mat-option *ngFor="let industry of industries"><span> [{{industry.key}}] </span><span> {{industry.name}} </span></mat-option>
+                  </mat-select>
+                </mat-form-field>
               </div>
             </div>
-
             <div class="inputs two-blocks">
               <div>
                 <label>Registered Office</label>
