@@ -3,8 +3,9 @@
     Information required for incorporation of new Company in Singapore
   </h1>
   <form [formGroup]="registrationForm" class="register-form">
-    <mat-horizontal-stepper [linear]="false" labelPosition="bottom" #stepper>
-
+    <mat-horizontal-stepper [linear]="false" labelPosition="bottom" #stepper [selectedIndex]="currentStep-1"
+    (selectionChange)="stepChanged($event)">
+      <!-- 'Step passed' sign-->
       <ng-template matStepperIcon="edit">
         <mat-icon>done</mat-icon>
       </ng-template>
@@ -13,55 +14,35 @@
       <mat-step>
         <ng-template matStepLabel>Company info</ng-template>
         <app-step1 [group]="companyInfoFormGroup"></app-step1>
-        <div class="foot-btns">
-          <button></button>
-          <button class="btn-next" matStepperNext (click)="getCompanyDetailsValue()">Next<span> > </span></button>
-        </div>
+        <app-stepper-direction-buttons [previous]="false" [next]="true"></app-stepper-direction-buttons>
       </mat-step>
 
       <!-- Step 2 -->
       <mat-step>
         <ng-template matStepLabel>Personal info</ng-template>
         <app-step2 [group]="personalInfoFormGroup"></app-step2>
-        <div class="foot-btns">
-          <button class="btn-prev" matStepperPrevious><span> &#60; </span>Previous</button>
-          <button class="btn-next" (click)="getCompanyDetailsValue()" matStepperNext>Next<span> > </span></button>
-        </div>
+        <app-stepper-direction-buttons [previous]="true" [next]="true"></app-stepper-direction-buttons>
       </mat-step>
 
       <!--  Step 3 -->
       <mat-step>
         <ng-template matStepLabel>Company details</ng-template>
-          <app-step3 [group]="companyDetailsFormGroup"></app-step3>
-
-          <div class="foot-btns">
-            <button class="btn-prev" matStepperPrevious><span> &#60; </span>Previous</button>
-            <button class="btn-next" matStepperNext>Next<span> > </span></button>
-          </div>
-
-
+        <app-step3 [group]="companyDetailsFormGroup"></app-step3>
+        <app-stepper-direction-buttons [previous]="true" [next]="true"></app-stepper-direction-buttons>
       </mat-step>
 
       <!-- Step 4 -->
       <mat-step>
         <ng-template matStepLabel>Confirmation</ng-template>
-
-          <app-step4 [group]="confirmationFormGroup"></app-step4>
-
-          <div class="foot-btns">
-            <button class="btn-prev" matStepperPrevious><span> &#60; </span>Previous</button>
-            <button class="btn-next" matStepperNext>Next<span> > </span></button>
-          </div>
+        <app-step4 [group]="confirmationFormGroup"></app-step4>
+        <app-stepper-direction-buttons [previous]="true" [next]="true"></app-stepper-direction-buttons>
       </mat-step>
 
       <!-- Step 5 -->
       <mat-step>
         <ng-template matStepLabel>Payment</ng-template>
         <app-step5 [group]="paymentFormGroup"></app-step5>
-
-        <div class="foot-btns">
-          <button class="btn-prev" matStepperPrevious><span> &#60; </span>Previous</button>
-        </div>
+        <app-stepper-direction-buttons [previous]="true" [next]="false"></app-stepper-direction-buttons>
       </mat-step>
     </mat-horizontal-stepper>
   </form>

@@ -20,12 +20,15 @@
           </div>
           <div class="inputs">
             <div>
-              <label>Nationality</label>
-              <select formControlName="nationality">
-                <option *ngFor="let nat of nationalities">
-                  {{nat.Nationality}}
-                </option>
-              </select>
+              <mat-form-field>
+
+                <mat-label>Nationality</mat-label>
+                <mat-select formControlName="nationality">
+                  <mat-option *ngFor="let nat of nationalities" [value]="nat.NationalityID">
+                    {{nat.Nationality}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
             </div>
             <div>
               <label>Date of Birth</label>
@@ -71,14 +74,16 @@
                 </mat-radio-group>
               </div>
               <div class="second-div">
-                <label>Shareholding Percentage (%)</label>
-                <select (change)="shareholdingChange($event)" formControlName="shareholding_percentage">
-                  <option disabled selected hidden>Select</option>
-                  <option>100%</option>
-                  <option>
-                    < 100%
-                  </option>
-                </select>
+                <mat-form-field>
+                  <mat-label>Shareholding Percentage (%)</mat-label>
+                  <mat-select (change)="shareholdingChange($event)" formControlName="shareholding_percentage">
+                    <mat-option disabled selected hidden>Select</mat-option>
+                    <mat-option>100%</mat-option>
+                    <mat-option>
+                      < 100%
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
               </div>
             </div>
 

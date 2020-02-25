@@ -1,0 +1,14 @@
+<div class="foot-btns">
+  <button *ngIf="!showPreviousBtn"></button>
+  <button class="btn-prev" matStepperPrevious *ngIf="showPreviousBtn">
+    <ng-container>
+      <span> &#60; </span>Previous
+    </ng-container>
+  </button>
+  <button class="btn-next" (click)="getCompanyDetailsValue()" matStepperNext *ngIf="showNextBtn">
+    <ng-container>
+      Next<span> > </span>
+    </ng-container>
+  </button>
+
+</div>

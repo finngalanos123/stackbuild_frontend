@@ -19,6 +19,7 @@ import {GetChoicesFormGroupPipe} from '../../shared/pipes/get-choices-form-group
 export class RegisterComponent implements OnInit {
 
   registrationForm: FormGroup;
+  currentStep = 1;
 
 
   constructor(
@@ -63,15 +64,16 @@ export class RegisterComponent implements OnInit {
     });
   }
 
+  stepChanged(e){
+    this.currentStep = e.selectedIndex + 1;
+  }
+
 
   saveInfo() {
-    console.log(this.registrationForm.getRawValue())
+    // console.log(this.registrationForm.getRawValue())
   }
 
 
-  getCompanyDetailsValue() {
-    console.log(this.registrationForm.getRawValue())
-  }
 
   get companyInfoFormGroup() {
     return this.registrationForm.controls.companyInfo as FormGroup;
