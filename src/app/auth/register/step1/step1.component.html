@@ -1,1 +1,40 @@
-<p>step1 works!</p>
+<div class="steps-content" [formGroup]="companyInfoFormGroup">
+  <h3 class="second-title">Company Name</h3>
+  <div class="proposed-company-name">
+    <h3 class="third-title">Proposed Company Name</h3>
+    <div class="inputs" formArrayName="companyNameChoices">
+      <ng-container *ngFor="let c of choices.controls;let ind = index">
+        <ng-container [formGroupName]="ind.toString()">
+          <input [placeholder]="'Choice '+(ind+1)" formControlName="name_choice">
+        </ng-container>
+      </ng-container>
+    </div>
+    <a class="add-block add-choice" (click)="addCompanyNameChoicesCount()">
+      + Add choice
+    </a>
+  </div>
+  <h3 class="second-title">Company Type</h3>
+  <h3 class="third-title">Type of Company</h3>
+  <input class="gray-input" placeholder="Private company limited by shares" disabled>
+  <div class="horizontal-blocks">
+    <div class="hr-block">
+      <h3 class="third-title">Have you obtained approval from relevant authorities?</h3>
+      <div class="hr-input">
+        <mat-radio-group aria-label="Select an option" formControlName="approval">
+          <mat-radio-button [value]=true>Yes</mat-radio-button>
+          <mat-radio-button [value]=false>No</mat-radio-button>
+        </mat-radio-group>
+      </div>
+    </div>
+    <div class="hr-block">
+      <h3 class="third-title">Will this new company take over another company?</h3>
+      <div class="hr-input">
+        <mat-radio-group aria-label="Select an option" formControlName="take_over">
+          <mat-radio-button [value]=true>Yes, maybe later</mat-radio-button>
+          <mat-radio-button [value]=false>No, not now</mat-radio-button>
+        </mat-radio-group>
+      </div>
+    </div>
+
+  </div>
+</div>

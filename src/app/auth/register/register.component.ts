@@ -50,10 +50,7 @@ export class RegisterComponent implements OnInit {
       companyInfo:
         this.fb.group({
           companyNameChoices:
-          // this.fb.group({
-          //   name_choice_1: this.fb.control('OK', Validators.required), name_choice_2:this.fb.control('', Validators.required)
-          // })
-            this.fb.array([
+             this.fb.array([
               this.createChoicesFormGroup(),
               this.createChoicesFormGroup()
             ]),
@@ -74,6 +71,8 @@ export class RegisterComponent implements OnInit {
         this.fb.group({input5: []}),
 
     });
+
+    console.log(this.registrationForm.controls)
 
   }
 
@@ -124,29 +123,10 @@ export class RegisterComponent implements OnInit {
       this.shareholdersDirs.controls.push(this.createShareholdersDirsFormGroup());
 
     }
-
-
-  }
-
-  addCompanyNameChoicesCount() {
-    const companyNameChoiceCountsLen = this.companyNameChoiceCounts.length;
-
-    if (companyNameChoiceCountsLen < 5) {
-      this.companyNameChoiceCounts.push(companyNameChoiceCountsLen);
-      this.choices.controls.push(this.createChoicesFormGroup());
-
-    }
-
   }
 
   getCompanyDetailsValue() {
-    // for(let c in this.registrationForm.get('companyInfo').controls.companyNameChoices.controls){
-    //   console.log(c)
-    //   console.log(this.registrationForm.get('companyInfo').controls)
-    // }
     console.log(this.registrationForm.getRawValue())
-    console.log(this.choices)
-
   }
 
   changedCountry(e) {
@@ -232,10 +212,15 @@ export class RegisterComponent implements OnInit {
   }
 
 
-  get choices() {
-    const companyInfo = this.registrationForm.get('companyInfo') as FormArray;
-    const companyInfoControls = companyInfo['controls'] as any;
-    return companyInfoControls.companyNameChoices;
+  // get choices() {
+  //   const companyInfo = this.registrationForm.get('companyInfo') as FormArray;
+  //   const companyInfoControls = companyInfo['controls'] as any;
+  //   return companyInfoControls.companyNameChoices;
+  // }
+
+
+  get companyInfoFormGroup() {
+    return this.registrationForm.controls.companyInfo as FormGroup;
   }
 
   get shareholdersDirs() {
