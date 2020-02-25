@@ -1,7 +1,51 @@
-<div [formGroup]="paymentFormGroup" class="payment">
+<div [formGroup]="paymentFormGroup">
+  <div class="summary">
+    <p class="summary-title">Summary</p>
+    <table>
+      <tr>
+        <th>Item Name</th>
+        <th>Payment Frequency</th>
+        <th>Estimated Budget</th>
+      </tr>
+      <tr>
+        <td>Incorporation</td>
+        <td>One-time</td>
+        <td>Free</td>
+      </tr>
+      <tr>
+        <td>ACRA fees</td>
+        <td>One-time</td>
+        <td>S$320.50</td>
+      </tr>
+      <tr class="btm-line">
+        <td>Corporate Secretary and Local Nominee</td>
+        <td>Monthly</td>
+        <td>S$307.00</td>
+      </tr>
+      <tr>
+        <td>Due now</td>
+        <td></td>
+        <td>S$320.50</td>
+      </tr>
+      <tr class="btm-line">
+        <td>Due 30 days after</td>
+        <td></td>
+        <td>S$307.00</td>
+      </tr>
+      <tr>
+        <td> <div class="brd-solid"></div></td>
+        <td><button class="btn-apply">Apply</button></td>
+        <td></td>
+      </tr>
+    </table>
+  </div>
+
+
+<div class="payment">
 
   <ngx-paypal [config]="payPalConfig"></ngx-paypal>
   <!--          <mat-form-field>-->
   <!--            <input matInput formControlName="input5">-->
   <!--          </mat-form-field>-->
+</div>
 </div>
