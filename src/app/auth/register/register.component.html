@@ -22,155 +22,7 @@
       <!-- Step 2 -->
       <mat-step>
         <ng-template matStepLabel>Personal info</ng-template>
-        <div class="steps-content" formGroupName="personalInfo">
-          <div formArrayName="shareHoldersDirs">
-            <ng-container *ngFor="let c of shareholdersDirs.controls;let i = index">
-              <div [formGroupName]="i">
-                <h3 class="second-title">Director / Shareholder</h3>
-                <div class="third-block">
-                  <div class="inputs">
-                    <div>
-                      <label>First and Last Name</label>
-                      <input placeholder="Enter your name as per your passport" formControlName="full_name">
-                    </div>
-                    <div>
-                      <label>Passport Number</label>
-                      <input placeholder="Enter a valid passport number" formControlName="passport_number">
-                    </div>
-                    <div>
-                      <label>Passport Expiry</label>
-                      <input placeholder="Select" type="date" class="" formControlName="passport_expiry_date">
-                    </div>
-                  </div>
-                  <div class="inputs">
-                    <div>
-                      <label>Nationality</label>
-                      <select formControlName="nationality">
-                        <option *ngFor="let nat of nationalities">
-                          {{nat.Nationality}}
-                        </option>
-                      </select>
-                    </div>
-                    <div>
-                      <label>Date of Birth</label>
-                      <input placeholder="Select" type="date" class="" formControlName="birthday">
-                    </div>
-                    <div class="international-number">
-                      <label>Mobile number</label>
-                      <international-phone-number placeholder="Phone number" class="phones"
-                                                  formControlName="phone_number"
-                                                  [maxlength]="20"
-                                                  [defaultCountry]="defaultCountry" [required]="true"
-                                                  (change)="changedCountry($event)"
-                                                  [allowedCountries]="allowedCountries"></international-phone-number>
-                    </div>
-                  </div>
-                  <div class="inputs">
-                    <div>
-                      <label>Password</label>
-                      <input placeholder="At least ten characters" formControlName="password">
-                    </div>
-                    <div class="resid-address">
-                      <label>Residential address</label>
-                      <input placeholder="Address line 1" formControlName="address_1">
-                    </div>
-                    <div class="resid-address">
-                      <label class="dot-color">.</label>
-                      <input placeholder="Address line 2" formControlName="address_2">
-                    </div>
-                    <div class="postcode-address">
-                      <label class="dot-color">.</label>
-                      <input placeholder="Postcode" formControlName="postcode">
-                    </div>
-                  </div>
-
-                  <div class="inputs">
-
-                    <div class="director-shareholder director-shareholder-for-radio ">
-                      <div class="first-div">
-                        <label>Are you both a director and shareholder?</label>
-                        <mat-radio-group aria-label="Select an option" formControlName="both_director">
-                          <mat-radio-button [value]=true>Yes, I'm both the director and shareholder</mat-radio-button>
-                          <mat-radio-button [value]=false>No, I'm the director but not a shareholder</mat-radio-button>
-                        </mat-radio-group>
-                      </div>
-                      <div class="second-div">
-                        <label>Shareholding Percentage (%)</label>
-                        <select (change)="shareholdingChange($event)" formControlName="shareholding_percentage">
-                          <option disabled selected hidden>Select</option>
-                          <option>100%</option>
-                          <option>
-                            < 100%
-                          </option>
-                        </select>
-                      </div>
-                    </div>
-
-
-                  </div>
-                  <div class="inputs flex-start">
-                    <div class="attach">
-                      <label>Attach Passport</label>
-                      <div class="btn-upload-input">
-                        <label for="attach-passport">Attach file<img src="assets/img/attach.png"></label>
-                        <input type="file" id="attach-passport">
-                      </div>
-                    </div>
-                    <div class="attach">
-                      <label>Attach Proof of Address</label>
-                      <div class="btn-upload-input">
-                        <label for="attach-address">Attach file<img src="assets/img/attach.png"></label>
-                        <input type="file" id="attach-address">
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </ng-container>
-          </div>
-          <div class="third-block">
-            <a class="add-block add-chocie" (click)="addShareholderCount()">
-              + Add director/shareholder
-            </a>
-            <h3 class="second-title">Nominee Director</h3>
-            <div class="inputs">
-              <div>
-                <label>First and Last Name</label>
-                <input class="back-gray" placeholder="As per records" disabled>
-              </div>
-              <div>
-                <label>Passport Number</label>
-                <input class="back-gray" placeholder="As per records" disabled>
-              </div>
-              <div>
-                <label>Passport Expiry</label>
-                <input class="back-gray" placeholder="As per records" type="date" disabled>
-              </div>
-            </div>
-            <div class="inputs last-block">
-              <div>
-                <label>Mobile number</label>
-                <input class="back-gray" placeholder="As per records" disabled>
-              </div>
-              <div>
-                <label>Email address</label>
-                <input class="back-gray" placeholder="As per records" disabled>
-              </div>
-              <div>
-                <label>Residential address</label>
-                <input class="back-gray" placeholder="As per records" disabled>
-              </div>
-              <div>
-                <label class="dot-color">.</label>
-                <input class="back-gray" placeholder="As per records" disabled>
-              </div>
-              <div>
-                <label class="dot-color">.</label>
-                <input class="back-gray" placeholder="As per records" disabled>
-              </div>
-            </div>
-          </div>
-        </div>
+        <app-step2 [group]="personalInfoFormGroup"></app-step2>
         <div class="foot-btns">
           <button class="btn-prev" matStepperPrevious><span> &#60; </span>Previous</button>
           <button class="btn-next" (click)="getCompanyDetailsValue()" matStepperNext>Next<span> > </span></button>
@@ -180,136 +32,33 @@
       <!--  Step 3 -->
       <mat-step>
         <ng-template matStepLabel>Company details</ng-template>
-        <div class="steps-content" formGroupName="companyDetails">
-          <h3 class="second-title">Business Information</h3>
-          <div class="third-block">
-            <div class="inputs two-blocks">
-              <div>
-                <label>Principal Business Activities</label>
-                <mat-form-field>
-                  <mat-label>Select</mat-label>
-                  <mat-select multiple>
-                    <mat-option *ngFor="let industry of industries"><span> [{{industry.key}}
-                      ] </span><span> {{industry.name}} </span></mat-option>
-                  </mat-select>
-                </mat-form-field>
-              </div>
-            </div>
-            <div class="inputs two-blocks">
-              <div>
-                <label>Registered Office</label>
-                <input class="back-gray" placeholder="As per records" disabled>
-              </div>
-              <div>
-                <label>Constitution</label>
-                <input class="back-gray" placeholder="Use ACRA's model constitution at the time of incorporation"
-                       disabled>
-              </div>
-            </div>
-
-            <h3 class="second-title">Ordinary Shares</h3>
-            <div class="inputs">
-              <div>
-                <label>Number of Shares</label>
-                <input placeholder="Type here">
-              </div>
-              <div>
-                <label>Amount of Issued Share Capital ($)</label>
-                <input placeholder="Type here">
-              </div>
-              <div>
-                <label>Currency:</label>
-                <select>
-                  <option disabled selected hidden>Currency</option>
-                  <option>USD</option>
-                  <option>SGD</option>
-                </select>
-              </div>
-            </div>
-
-            <div class="inputs last-block">
-              <div>
-                <label>Secretary</label>
-                <input class="back-gray" placeholder="As per records" disabled>
-              </div>
-              <div>
-                <label>Financial Year End</label>
-                <input class="back-gray" placeholder="31 12 2020" disabled>
-              </div>
-              <div>
-
-              </div>
-            </div>
-          </div>
+          <app-step3 [group]="companyDetailsFormGroup"></app-step3>
 
           <div class="foot-btns">
             <button class="btn-prev" matStepperPrevious><span> &#60; </span>Previous</button>
             <button class="btn-next" matStepperNext>Next<span> > </span></button>
           </div>
-        </div>
+
 
       </mat-step>
 
       <!-- Step 4 -->
       <mat-step>
         <ng-template matStepLabel>Confirmation</ng-template>
-        <div class="steps-content">
-          <h3 class="second-title">Confirmation and Signatures</h3>
-          <div class="checkbox-input">
-            <input type="checkbox" id="checking-here" name="checking-here" value="Bike">
-            <!--            <mat-checkbox></mat-checkbox>-->
-            <label for="checking-here">By checking here, you agree to our Terms of Service, Privacy Policy and to
-              receive Kimbocorp emails, newsletters & updates.
-              You also acknowledge that Kimbocorp uses cookies to give the best user experience.</label>
-          </div>
-          <div class="signature-block">
-            <div class="signature">
-              <signature-pad [options]="signaturePadOptions" (onBeginEvent)="drawStart()"
-                             (onEndEvent)="drawComplete(sign1, 'test')"
-                             #sign1></signature-pad>
-              <div class="signature-line"></div>
-              <div class="signature-block">
 
-                <span class="signature-text">Signature: Director/Shareholder 1</span>
-                <button (click)="sign1.clear()" mat-icon-button class="clear-signature">
-                  <mat-icon>delete</mat-icon>
-                </button>
-              </div>
-            </div>
-
-            <div class="signature">
-              <signature-pad [options]="signaturePadOptions" (onBeginEvent)="drawStart()"
-                             (onEndEvent)="drawComplete(sign2, 'test')"
-                             #sign2></signature-pad>
-              <div class="signature-line"></div>
-              <div class="signature-block">
-
-                <span class="signature-text">Signature: Director/Shareholder 2</span>
-                <button (click)="sign2.clear()" mat-icon-button class="clear-signature">
-                  <mat-icon>delete</mat-icon>
-                </button>
-              </div>
-            </div>
-          </div>
-
+          <app-step4 [group]="confirmationFormGroup"></app-step4>
 
           <div class="foot-btns">
             <button class="btn-prev" matStepperPrevious><span> &#60; </span>Previous</button>
             <button class="btn-next" matStepperNext>Next<span> > </span></button>
           </div>
-        </div>
       </mat-step>
 
       <!-- Step 5 -->
       <mat-step>
         <ng-template matStepLabel>Payment</ng-template>
-        <div formGroupName="payment" class="payment">
+        <app-step5 [group]="paymentFormGroup"></app-step5>
 
-          <ngx-paypal [config]="payPalConfig"></ngx-paypal>
-          <!--          <mat-form-field>-->
-          <!--            <input matInput formControlName="input5">-->
-          <!--          </mat-form-field>-->
-        </div>
         <div class="foot-btns">
           <button class="btn-prev" matStepperPrevious><span> &#60; </span>Previous</button>
         </div>

@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {INDUSTRIES} from '../../../core/constants/industries';
+import {FormGroup} from '@angular/forms';
 
 @Component({
   selector: 'app-step3',
@@ -6,8 +8,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./step3.component.scss']
 })
 export class Step3Component implements OnInit {
-
-  constructor() { }
+  industries = INDUSTRIES;
+  @Input('group') companyDetailsFormGroup: FormGroup;
+  constructor() {
+  }
 
   ngOnInit(): void {
   }

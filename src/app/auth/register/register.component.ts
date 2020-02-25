@@ -8,6 +8,8 @@ import {SignaturePad} from 'ngx-signaturepad';
 import {DataUrlToFilePipe} from '../../shared/pipes/data-url-to-file.pipe';
 import {NATIONALITIES} from '../../core/constants/nationalities';
 import {INDUSTRIES} from '../../core/constants/industries';
+import {GetShareholdersDirsFormGroupPipe} from '../../shared/pipes/get-shareholders-dirs-form-group.pipe';
+import {GetChoicesFormGroupPipe} from '../../shared/pipes/get-choices-form-group.pipe';
 
 @Component({
   selector: 'app-register',
@@ -17,42 +19,30 @@ import {INDUSTRIES} from '../../core/constants/industries';
 export class RegisterComponent implements OnInit {
 
   registrationForm: FormGroup;
-  payPalConfig ?: IPayPalConfig;
-  defaultCountry = DEFAULT_COUNTRY;
-  allowedCountries = COUNTRY_CODES;
-  nationalities = NATIONALITIES;
-  industries = INDUSTRIES;
-  signaturePadOptions: Object = {
-    'minWidth': 5,
-    'canvasWidth': 420,
-    'canvasHeight': 220,
-  };
 
-  shareholderCounts = [0];
-  companyNameChoiceCounts = [1, 2];
-
-  @ViewChild(SignaturePad) sign1: SignaturePad;
 
   constructor(
     private fb: FormBuilder,
     private dialog: MatDialog,
-    private dataURLtoFile: DataUrlToFilePipe
+    private createShareholdersDirsFormGroup: GetShareholdersDirsFormGroupPipe,
+    private createChoicesFormGroup: GetChoicesFormGroupPipe
   ) {
 
 
   }
 
   ngOnInit(): void {
-    this.initConfig();
+    this.initForm();
+  }
 
-
+  initForm() {
     this.registrationForm = this.fb.group({
       companyInfo:
         this.fb.group({
           companyNameChoices:
-             this.fb.array([
-              this.createChoicesFormGroup(),
-              this.createChoicesFormGroup()
+            this.fb.array([
+              this.createChoicesFormGroup.transform(),
+              this.createChoicesFormGroup.transform()
             ]),
           approval: [false, Validators.required],
           take_over: [false, Validators.required]
@@ -60,7 +50,7 @@ export class RegisterComponent implements OnInit {
       personalInfo:
         this.fb.group({
           shareHoldersDirs: this.fb.array([
-            this.createShareholdersDirsFormGroup()
+            this.createShareholdersDirsFormGroup.transform()
           ]),
         }),
       companyDetails:
@@ -71,9 +61,6 @@ export class RegisterComponent implements OnInit {
         this.fb.group({input5: []}),
 
     });
-
-    console.log(this.registrationForm.controls)
-
   }
 
 
@@ -81,151 +68,30 @@ export class RegisterComponent implements OnInit {
     console.log(this.registrationForm.getRawValue())
   }
 
-  createChoicesFormGroup(): FormGroup {
-    return this.fb.group({
-        name_choice: ['', [Validators.required]]
-      }
-    );
-  }
-
-  createShareholdersDirsFormGroup() {
-    return this.fb.group({
-        full_name: ['', Validators.required],
-        passport_number: ['', Validators.required],
-        passport_expiry_date: ['', Validators.required],
-        nationality: ['', Validators.required],
-        birthday: ['', Validators.required],
-        phone_number: ['', Validators.required],
-        password: ['', Validators.required],
-        address_1: ['', Validators.required],
-        address_2: ['', Validators.required],
-        postcode: ['', Validators.required],
-        both_director: ['', Validators.required],
-        shareholding_percentage: ['', Validators.required]
-      }
-    );
-  }
-
-  shareholdingChange(e) {
-    console.log(e.target.value);
-    if (e.target.value == "< 100%") {
-      this.dialog.open(ShareholdingDialogComponent, {width: '400', height: '480'})
-    }
-
-  }
-
-  addShareholderCount() {
-    const shareholderCountsLen = this.shareholderCounts.length;
-
-    if (shareholderCountsLen < 5) {
-
-      this.shareholderCounts.push(shareholderCountsLen);
-      this.shareholdersDirs.controls.push(this.createShareholdersDirsFormGroup());
-
-    }
-  }
 
   getCompanyDetailsValue() {
     console.log(this.registrationForm.getRawValue())
   }
 
-  changedCountry(e) {
-    console.log(e.target.value)
-  }
-
-  private initConfig(): void {
-    this.payPalConfig = {
-      currency: 'EUR',
-      clientId: 'AZUC1ah9XyE3zr5X7RWd-YRHSJjdeNGc6nVDAi_JkEpXfjCMHaaaH4ewIGai_X-BINpuQXDDwssEmFtY',
-      createOrderOnClient: (data) => <ICreateOrderRequest>{
-        intent: 'CAPTURE',
-        purchase_units: [
-          {
-            amount: {
-              currency_code: 'EUR',
-              value: '9.99',
-              breakdown: {
-                item_total: {
-                  currency_code: 'EUR',
-                  value: '9.99'
-                }
-              }
-            },
-            items: [
-              {
-                name: 'Enterprise Subscription',
-                quantity: '1',
-                category: 'DIGITAL_GOODS',
-                unit_amount: {
-                  currency_code: 'EUR',
-                  value: '9.99',
-                },
-              }
-            ]
-          }
-        ]
-      },
-      advanced: {
-        commit: 'true'
-      },
-      style: {
-        label: 'paypal',
-        layout: 'vertical'
-      },
-      onApprove: (data, actions) => {
-        console.log('onApprove - transaction was approved, but not authorized', data, actions);
-        actions.order.get().then(details => {
-          console.log('onApprove - you can get full order details inside onApprove: ', details);
-        });
-      },
-      onClientAuthorization: (data) => {
-        console.log('onClientAuthorization - you should probably inform your server about completed transaction at this point', data);
-        // this.showSuccess = true;
-      },
-      onCancel: (data, actions) => {
-        console.log('OnCancel', data, actions);
-      },
-      onError: err => {
-        console.log('OnError', err);
-      },
-      onClick: (data, actions) => {
-        console.log('onClick', data, actions);
-      },
-    };
-
-
-  }
-
-  ngAfterViewInit() {
-    this.sign1.set('minWidth', 5);
-    this.sign1.clear();
-  }
-
-  drawComplete(sign, filename) {
-
-    var file = this.dataURLtoFile.transform(sign.toDataURL(), filename + '.jpg');
-    console.log(sign.toDataURL())
-  }
-
-  drawStart() {
-    console.log('begin drawing');
-  }
-
-
-  // get choices() {
-  //   const companyInfo = this.registrationForm.get('companyInfo') as FormArray;
-  //   const companyInfoControls = companyInfo['controls'] as any;
-  //   return companyInfoControls.companyNameChoices;
-  // }
-
-
   get companyInfoFormGroup() {
     return this.registrationForm.controls.companyInfo as FormGroup;
   }
 
-  get shareholdersDirs() {
-    const companyInfo = this.registrationForm.get('personalInfo') as FormArray;
-    const companyInfoControls = companyInfo['controls'] as any;
-    return companyInfoControls.shareHoldersDirs;
+  get personalInfoFormGroup() {
+    return this.registrationForm.controls.personalInfo as FormGroup;
   }
+
+  get companyDetailsFormGroup() {
+    return this.registrationForm.controls.companyDetails as FormGroup;
+  }
+
+  get confirmationFormGroup() {
+    return this.registrationForm.controls.confirmation as FormGroup;
+  }
+
+  get paymentFormGroup() {
+    return this.registrationForm.controls.payment as FormGroup;
+  }
+
+
 }
