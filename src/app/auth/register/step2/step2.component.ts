@@ -19,6 +19,7 @@ export class Step2Component implements OnInit {
   nationalities = NATIONALITIES;
 
   shareholderCounts = [0];
+  maxShareholderCounts = 5;
 
   constructor(
     private fb: FormBuilder,
@@ -47,7 +48,7 @@ export class Step2Component implements OnInit {
   addShareholderCount() {
     const shareholderCountsLen = this.shareholderCounts.length;
 
-    if (shareholderCountsLen < 5) {
+    if (shareholderCountsLen < this.maxShareholderCounts) {
 
       this.shareholderCounts.push(shareholderCountsLen);
       this.shareholdersDirs.controls.push(this.createShareholdersDirsFormGroup.transform());

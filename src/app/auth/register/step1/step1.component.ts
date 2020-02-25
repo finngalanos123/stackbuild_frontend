@@ -9,6 +9,7 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 export class Step1Component implements OnInit {
 
   companyNameChoiceCounts = [1, 2];
+  maxCompanyChoices = 3;
 
   constructor(private fb: FormBuilder) {
   }
@@ -22,7 +23,7 @@ export class Step1Component implements OnInit {
   addCompanyNameChoicesCount() {
     const companyNameChoiceCountsLen = this.companyNameChoiceCounts.length;
 
-    if (companyNameChoiceCountsLen < 5) {
+    if (companyNameChoiceCountsLen < this.maxCompanyChoices) {
       this.companyNameChoiceCounts.push(companyNameChoiceCountsLen);
       this.choices.controls.push(this.createChoicesFormGroup());
 
