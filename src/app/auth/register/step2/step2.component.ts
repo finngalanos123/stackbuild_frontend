@@ -1,11 +1,9 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {INDUSTRIES} from '../../../core/constants/industries';
-import {COUNTRY_CODES, DEFAULT_COUNTRY} from '../../../core/constants/country-codes';
-import {NATIONALITIES} from '../../../core/constants/nationalities';
-import {ShareholdingDialogComponent} from '../../../core/components/shareholding-dialog/shareholding-dialog.component';
 import {MatDialog} from '@angular/material/dialog';
-import {GetShareholdersDirsFormGroupPipe} from '../../../shared/pipes/get-shareholders-dirs-form-group.pipe';
+import {NATIONALITIES} from '@core/constants/nationalities';
+import {COUNTRY_CODES, DEFAULT_COUNTRY} from '@core/constants/country-codes';
+import {GetShareholdersDirsFormGroupPipe} from '@shared/pipes/get-shareholders-dirs-form-group.pipe';
 
 @Component({
   selector: 'app-step2',

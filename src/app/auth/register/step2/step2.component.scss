@@ -4,6 +4,11 @@
 input, div {
   box-sizing: border-box;
 }
+
+.dot-color-nation {
+  color: white !important;
+}
+
 .mat-radio-group {
   width: 97%;
   display: flex;
@@ -345,6 +350,9 @@ input, div {
 }
 
 @media(max-width: 767px) {
+  .dot-color-nation {
+    display: none !important;
+  }
   .mat-radio-group {
     flex-direction: column;
     .mat-radio-button {
