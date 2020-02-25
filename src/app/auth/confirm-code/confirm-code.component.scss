@@ -1,0 +1,10 @@
+.confirmCodeContainer {
+  display: flex;
+  width: 40%;
+  justify-content: center;
+  margin: auto;
+
+  .mat-form-field {
+    width: 100%;
+  }
+}
