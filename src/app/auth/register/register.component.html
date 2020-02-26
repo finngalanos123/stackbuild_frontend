@@ -337,6 +337,9 @@
       <!-- Step 5 -->
       <mat-step>
         <ng-template matStepLabel>Payment</ng-template>
+        <div class="summary">
+          Summary
+        </div>
         <div formGroupName="payment" class="payment">
 
           <ngx-paypal [config]="payPalConfig"></ngx-paypal>
