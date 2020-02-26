@@ -5,9 +5,8 @@
     <span>Enter the code soon, as it will expire shortly.</span>
     <div>
       <mat-form-field>
-        <input matInput placeholder="Your confirmation code">
+        <input matInput placeholder="Your confirmation code" (paste)="codeChanged()">
       </mat-form-field>
-      <button>Confirm</button>
     </div>
     <div>
       <mat-hint>
