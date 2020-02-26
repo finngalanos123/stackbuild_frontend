@@ -1,15 +1,8 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
-import {FormArray, FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {Component, OnInit} from '@angular/core';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {MatDialog} from '@angular/material/dialog';
-import {ShareholdingDialogComponent} from 'src/app/core/components/shareholding-dialog/shareholding-dialog.component';
-import {ICreateOrderRequest, IPayPalConfig} from 'ngx-paypal';
-import {COUNTRY_CODES, DEFAULT_COUNTRY} from '../../core/constants/country-codes';
-import {SignaturePad} from 'ngx-signaturepad';
-import {DataUrlToFilePipe} from '../../shared/pipes/data-url-to-file.pipe';
-import {NATIONALITIES} from '../../core/constants/nationalities';
-import {INDUSTRIES} from '../../core/constants/industries';
-import {GetShareholdersDirsFormGroupPipe} from '../../shared/pipes/get-shareholders-dirs-form-group.pipe';
-import {GetChoicesFormGroupPipe} from '../../shared/pipes/get-choices-form-group.pipe';
+import {GetShareholdersDirsFormGroupPipe} from '@shared/pipes/get-shareholders-dirs-form-group.pipe';
+import {GetChoicesFormGroupPipe} from '@shared/pipes/get-choices-form-group.pipe';
 
 @Component({
   selector: 'app-register',

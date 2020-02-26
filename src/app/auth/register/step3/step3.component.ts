@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {INDUSTRIES} from '../../../core/constants/industries';
+import {INDUSTRIES} from '@core/constants/industries';
 import {FormGroup} from '@angular/forms';
 
 @Component({
