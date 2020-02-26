@@ -4,8 +4,10 @@
     <p class="form-title-2">Enter the code soon, as it will expire shortly.</p>
     <div class="confirm-content">
       <mat-form-field>
-        <input matInput placeholder="Your confirmation code">
+        <input matInput placeholder="Your confirmation code" (paste)="codeChanged()">
       </mat-form-field>
+    </div>
+    <div>
       <mat-hint>
         <div class="form-email-text">
           Keep this open while you check your email.<br>
