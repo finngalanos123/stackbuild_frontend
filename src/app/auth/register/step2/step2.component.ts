@@ -16,9 +16,9 @@ export class Step2Component implements OnInit {
   defaultCountry = DEFAULT_COUNTRY;
   allowedCountries = COUNTRY_CODES;
   nationalities = NATIONALITIES;
-
   shareholderCounts = [0];
   maxShareholderCounts = 5;
+  defaultSelectValue = { };
 
   constructor(
     private fb: FormBuilder,
@@ -33,16 +33,16 @@ export class Step2Component implements OnInit {
   }
 
   changedCountry(e) {
-    console.log(e.target.value)
+    // console.log(e.target.value);
   }
 
   shareholdingChange(e) {
-    console.log(e.target.value);
-    if (e.target.value == "< 100%") {
-      this.dialog.open(ShareholdingDialogComponent, {width: '400', height: '480'})
+    if (e === '< 100%') {
+      this.dialog.open(ShareholdingDialogComponent, {width: '400', height: '480'});
+      this.defaultSelectValue =  { };
     }
-
   }
+
 
   addShareholderCount() {
     const shareholderCountsLen = this.shareholderCounts.length;

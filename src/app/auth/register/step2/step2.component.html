@@ -78,12 +78,10 @@
                 <label class="dot-color">.</label>
                 <mat-form-field>
                   <mat-label>Shareholding Percentage (%)</mat-label>
-                  <mat-select (change)="shareholdingChange($event)" formControlName="shareholding_percentage">
+                  <mat-select (selectionChange)="shareholdingChange($event.value)" formControlName="shareholding_percentage" [value]="defaultSelectValue">
                     <mat-option disabled selected hidden>Select</mat-option>
-                    <mat-option>100%</mat-option>
-                    <mat-option>
-                      < 100%
-                    </mat-option>
+                    <mat-option [value]="'100%'">100%</mat-option>
+                    <mat-option [value]="'< 100%'"> < 100%</mat-option>
                   </mat-select>
                 </mat-form-field>
               </div>

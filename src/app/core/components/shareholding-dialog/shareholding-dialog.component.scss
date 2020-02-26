@@ -21,15 +21,17 @@
         margin-bottom: 38px;
     }
     .tab-content {
-        height: 200px;
+        height: 240px;
         box-sizing: border-box;
         .text-email {
             color: #2F2E33;
             font-family: 'Ubuntu-Medium';
             font-size: 14px;
             margin: 24px 0;
-
         }
+      .copy-link {
+        margin-top: 45px;
+      }
         input, select {
             width: 100%;
             box-sizing: border-box;

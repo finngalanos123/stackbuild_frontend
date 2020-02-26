@@ -5,7 +5,7 @@
   <form [formGroup]="registrationForm" class="register-form">
     <mat-horizontal-stepper [linear]="false" labelPosition="bottom" #stepper [selectedIndex]="currentStep-1"
     (selectionChange)="stepChanged($event)">
-      
+
       <!-- 'Step passed' sign-->
       <ng-template matStepperIcon="edit">
         <mat-icon>done</mat-icon>
