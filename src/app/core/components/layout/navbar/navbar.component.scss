@@ -1,22 +1,49 @@
 @import 'src/assets/styles/mixins';
 @import 'src/assets/styles/variables';
 .mat-toolbar {
+  width: 100%;
   position: sticky;
+  border-bottom: 1px solid #EEEEEE;
+  background: $body;
   top: 0;
+  padding: 60px 160px 45px 160px;
   z-index: 200;
   display: flex;
   justify-content: space-between;
   overflow: hidden;
-
+  .navbar-input {
+    background: white;
+    border-radius: 30px;
+    padding: 2px 2px 2px 21px;
+    border: 1px solid #D0D0D0;
+  }
   .leftGroup {
     display: flex;
     align-items: center;
+    font-size: 24px;
+    font-family: 'Ubuntu-Bold';
   }
   .rightGroup{
-    button{
+    button {
       @include btn-next-prev;
       background-color: $blue;
       color: $white;
     }
   }
 }
+@media(max-width: 992px) {
+  .mat-toolbar {
+    padding: 60px 60px 45px 60px;
+  }
+}
+@media(max-width: 767px) {
+  .mat-toolbar {
+    flex-direction: column;
+    padding: 40px 60px 45px 60px;
+    height: 185px;
+    .rightGroup {
+      margin-top: 20px;
+    }
+  }
+}
+

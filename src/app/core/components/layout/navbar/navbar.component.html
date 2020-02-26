@@ -1,20 +1,15 @@
 <mat-toolbar>
-  <div class="leftGroup">
-
-  </div>
-
-  <div class="centerGroup">
-
-  </div>
-
-  <div class="rightGroup">
-    <form [formGroup]="getStartedForm">
-      <mat-form-field>
-        <mat-label>Add your work e-mail</mat-label>
-        <input matInput formControlName="email">
-      </mat-form-field>
-      <button (click)="sendCodeEmail()">Get started</button>
-    </form>
-  </div>
-
+<!--  <div class="navbar-content">-->
+    <div class="leftGroup">
+      Check you email
+    </div>
+    <div class="rightGroup">
+      <form [formGroup]="getStartedForm">
+        <div class="navbar-input">
+          <input placeholder="Add your work email">
+          <button (click)="sendCodeEmail()">Get started</button>
+        </div>
+      </form>
+    </div>
+<!--  </div>-->
 </mat-toolbar>
