@@ -10,6 +10,7 @@
   <div class="rightGroup">
     <form [formGroup]="getStartedForm">
       <mat-form-field>
+        <mat-label>Add your work e-mail</mat-label>
         <input matInput formControlName="email">
       </mat-form-field>
       <button (click)="sendCodeEmail()">Get started</button>
