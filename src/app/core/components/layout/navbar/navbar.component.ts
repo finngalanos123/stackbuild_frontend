@@ -22,8 +22,8 @@ export class NavbarComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  sendCodeEmail() {
-    this.router.navigate(['auth/confirm-code'])
+  async sendCodeEmail() {
+    await this.router.navigate(['auth/confirm-code'])
   }
 
 }

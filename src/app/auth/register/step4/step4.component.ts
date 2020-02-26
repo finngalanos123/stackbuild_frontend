@@ -1,6 +1,6 @@
 import {Component, Input, OnInit, ViewChild} from '@angular/core';
 import {FormGroup} from '@angular/forms';
-import {DataUrlToFilePipe} from '../../../shared/pipes/data-url-to-file.pipe';
+import {DataUrlToFilePipe} from '@shared/pipes/data-url-to-file.pipe';
 import {SignaturePad} from 'ngx-signaturepad';
 
 @Component({

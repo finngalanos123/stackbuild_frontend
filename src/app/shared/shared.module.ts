@@ -1,6 +1,6 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {MaterialModule} from '../core/modules/material.module';
+import {MaterialModule} from '@core/modules/material.module';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {DataUrlToFilePipe} from './pipes/data-url-to-file.pipe';
 import {GetShareholdersDirsFormGroupPipe} from './pipes/get-shareholders-dirs-form-group.pipe';
