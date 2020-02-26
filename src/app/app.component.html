@@ -1,1 +1,17 @@
-<router-outlet></router-outlet>
+<mat-sidenav-container *ngIf="!ifRegisterPage()">
+  <mat-sidenav [mode]="getMode(sidenav)" #sidenav
+               id="sidenav" [opened]="!ifRegisterPage()">
+<!--    <app-sidebar (toggle)="closeSidenav(sidenav)"-->
+<!--    ></app-sidebar>-->
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <app-navbar *ngIf="!ifRegisterPage()"></app-navbar>
+<!--    <mat-spinner [diameter]="30" *ngIf="common.dataLoading"></mat-spinner>-->
+    <router-outlet></router-outlet>
+<!--    <app-footer *ngIf="!checkDashboardPage() && !router.url.includes('auth')"></app-footer>-->
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+<ng-container *ngIf="ifRegisterPage()">
+  <router-outlet></router-outlet>
+</ng-container>

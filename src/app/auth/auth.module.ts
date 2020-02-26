@@ -13,9 +13,21 @@ import { Step2Component } from './register/step2/step2.component';
 import { Step3Component } from './register/step3/step3.component';
 import { Step4Component } from './register/step4/step4.component';
 import { Step5Component } from './register/step5/step5.component';
+import { StepperDirectionButtonsComponent } from './register/stepper-direction-buttons/stepper-direction-buttons.component';
+import { ConfirmCodeComponent } from './confirm-code/confirm-code.component';
 
 @NgModule({
-  declarations: [RegisterComponent, NewCompanyComponent, Step1Component, Step2Component, Step3Component, Step4Component, Step5Component],
+  declarations: [
+    RegisterComponent,
+    NewCompanyComponent,
+    Step1Component,
+    Step2Component,
+    Step3Component,
+    Step4Component,
+    Step5Component,
+    StepperDirectionButtonsComponent,
+    ConfirmCodeComponent
+  ],
   imports: [
     CommonModule,
     AuthRoutingModule,

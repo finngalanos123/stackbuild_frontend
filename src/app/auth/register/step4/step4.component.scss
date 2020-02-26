@@ -1,0 +1,104 @@
+@import 'src/assets/styles/mixins';
+@import 'src/assets/styles/styles';
+
+input, div {
+  box-sizing: border-box;
+}
+
+
+.steps-content {
+  margin-top: 50px;
+  .signature {
+    touch-action: none;
+    border: 1px solid gainsboro;
+    width: 420px;
+    height: 280px;
+    margin-left: 100px;
+    .signature-text {
+      color: #2F2E33;
+      font-size: 16px;
+      font-family: 'Ubuntu-Regular';
+      text-align: center;
+    }
+    .signature-line {
+      width: 80%;
+      height: 1px;
+      background: gainsboro;
+      margin: 0 auto;
+      margin-bottom: 5px;
+    }
+    .signature-block {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 40px;
+    }
+
+    .clear-signature {
+      mat-icon {
+        color: $red;
+      }
+    }
+  }
+  .signature-block {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .add-choice {
+    display: flex;
+  }
+  .checkbox-input {
+    color: #2F2E33;
+    font-size: 16px;
+    font-family: 'Ubuntu-Regular';
+    max-width: 800px;
+    margin: 60px 0;
+    margin-left: 100px;
+    input {
+      margin-right: 5px;
+    }
+  }
+}
+
+
+
+@media(max-width: 1200px) {
+  .steps-content {
+    .signature {
+      margin-bottom: 80px;
+      margin-left: 0;
+      height: 305px;
+    }
+
+    .signature-block {
+      flex-direction: column;
+    }
+  }
+}
+@media(max-width: 992px) {
+  .steps-content {
+    .checkbox-input {
+      font-size: 13px;
+      max-width: 100%;
+      margin: 40px 0;
+      margin-left: 0;
+    }
+  }
+}
+@media(max-width: 767px) {
+  .foot-btns {
+    margin-top: 60px;
+  }
+}
+
+@media(max-width: 480px) {
+  .steps-content {
+    .signature-block {
+      overflow-x: scroll;
+    }
+    .foot-btns {
+      margin-top: 60px;
+    }
+  }
+}

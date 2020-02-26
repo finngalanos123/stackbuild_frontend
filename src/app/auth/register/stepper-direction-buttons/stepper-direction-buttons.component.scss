@@ -1,0 +1,26 @@
+@import 'src/assets/styles/mixins';
+@import 'src/assets/styles/styles';
+
+.foot-btns {
+  margin-top: 110px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .btn-prev {
+    @include btn-next-prev;
+    background: white;
+    color: #2F2E33;
+  }
+
+  .btn-next {
+    @include btn-next-prev;
+    background: #3B7097;
+    color: #fff;
+  }
+
+  span {
+    margin: 0 5px;
+
+  }
+}

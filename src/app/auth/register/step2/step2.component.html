@@ -1,1 +1,154 @@
-<p>step2 works!</p>
+<div class="steps-content" [formGroup]="personalInfoFormGroup">
+  <div formArrayName="shareHoldersDirs">
+    <ng-container *ngFor="let c of shareholdersDirs.controls;let i = index">
+      <div [formGroupName]="i">
+        <h3 class="second-title">Director / Shareholder</h3>
+        <div class="third-block">
+          <div class="inputs">
+            <div>
+              <label>First and Last Name</label>
+              <input placeholder="Enter your name as per your passport" formControlName="full_name">
+            </div>
+            <div>
+              <label>Passport Number</label>
+              <input placeholder="Enter a valid passport number" formControlName="passport_number">
+            </div>
+            <div>
+              <label>Passport Expiry</label>
+              <input placeholder="Select" type="date" class="" formControlName="passport_expiry_date">
+            </div>
+          </div>
+          <div class="inputs">
+            <div>
+              <label class="dot-color">.</label>
+              <mat-form-field>
+
+                <mat-label>Nationality</mat-label>
+                <mat-select formControlName="nationality">
+                  <mat-option *ngFor="let nat of nationalities" [value]="nat.NationalityID">
+                    {{nat.Nationality}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+            <div>
+              <label>Date of Birth</label>
+              <input placeholder="Select" type="date" class="" formControlName="birthday">
+            </div>
+            <div class="international-number">
+              <label>Mobile number</label>
+              <international-phone-number placeholder="Phone number" class="phones"
+                                          formControlName="phone_number"
+                                          [maxlength]="20"
+                                          [defaultCountry]="defaultCountry" [required]="true"
+                                          (change)="changedCountry($event)"
+                                          [allowedCountries]="allowedCountries"></international-phone-number>
+            </div>
+          </div>
+          <div class="inputs">
+            <div>
+              <label>Password</label>
+              <input placeholder="At least ten characters" formControlName="password">
+            </div>
+            <div class="resid-address">
+              <label>Residential address</label>
+              <input placeholder="Address line 1" formControlName="address_1">
+            </div>
+            <div class="resid-address">
+              <label class="dot-color">.</label>
+              <input placeholder="Address line 2" formControlName="address_2">
+            </div>
+            <div class="postcode-address">
+              <label class="dot-color">.</label>
+              <input placeholder="Postcode" formControlName="postcode">
+            </div>
+          </div>
+
+          <div class="inputs">
+
+            <div class="director-shareholder director-shareholder-for-radio ">
+              <div class="first-div">
+                <label>Are you both a director and shareholder?</label>
+                <mat-radio-group aria-label="Select an option" formControlName="both_director">
+                  <mat-radio-button [value]=true>Yes, I'm both the director and shareholder</mat-radio-button>
+                  <mat-radio-button [value]=false>No, I'm the director but not a shareholder</mat-radio-button>
+                </mat-radio-group>
+              </div>
+              <div class="second-div">
+                <label class="dot-color">.</label>
+                <mat-form-field>
+                  <mat-label>Shareholding Percentage (%)</mat-label>
+                  <mat-select (selectionChange)="shareholdingChange($event.value)" formControlName="shareholding_percentage" [value]="defaultSelectValue">
+                    <mat-option disabled selected hidden>Select</mat-option>
+                    <mat-option [value]="'100%'">100%</mat-option>
+                    <mat-option [value]="'< 100%'"> < 100%</mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+            </div>
+
+
+          </div>
+          <div class="inputs flex-start">
+            <div class="attach">
+              <label>Attach Passport</label>
+              <div class="btn-upload-input">
+                <label for="attach-passport">Attach file<img src="assets/img/attach.png"></label>
+                <input type="file" id="attach-passport">
+              </div>
+            </div>
+            <div class="attach">
+              <label>Attach Proof of Address</label>
+              <div class="btn-upload-input">
+                <label for="attach-address">Attach file<img src="assets/img/attach.png"></label>
+                <input type="file" id="attach-address">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+  <div class="third-block">
+    <a class="add-block add-chocie" (click)="addShareholderCount()">
+      + Add director/shareholder
+    </a>
+    <h3 class="second-title">Nominee Director</h3>
+    <div class="inputs">
+      <div>
+        <label>First and Last Name</label>
+        <input class="back-gray" placeholder="As per records" disabled>
+      </div>
+      <div>
+        <label>Passport Number</label>
+        <input class="back-gray" placeholder="As per records" disabled>
+      </div>
+      <div>
+        <label>Passport Expiry</label>
+        <input class="back-gray" placeholder="As per records" type="date" disabled>
+      </div>
+    </div>
+    <div class="inputs last-block">
+      <div>
+        <label>Mobile number</label>
+        <input class="back-gray" placeholder="As per records" disabled>
+      </div>
+      <div>
+        <label>Email address</label>
+        <input class="back-gray" placeholder="As per records" disabled>
+      </div>
+      <div>
+        <label>Residential address</label>
+        <input class="back-gray" placeholder="As per records" disabled>
+      </div>
+      <div>
+        <label class="dot-color">.</label>
+        <input class="back-gray" placeholder="As per records" disabled>
+      </div>
+      <div>
+        <label class="dot-color">.</label>
+        <input class="back-gray" placeholder="As per records" disabled>
+      </div>
+    </div>
+  </div>
+</div>

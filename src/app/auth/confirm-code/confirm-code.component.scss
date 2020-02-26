@@ -1,0 +1,24 @@
+@import 'src/assets/styles/mixins';
+@import 'src/assets/styles/variables';
+
+.confirmCodeContainer {
+  display: flex;
+  width: 40%;
+  justify-content: center;
+  margin: auto;
+  font-family: 'Ubuntu-Medium';
+
+  h1{
+    font-family: 'Ubuntu-Medium';
+  }
+
+  .mat-form-field {
+    width: 100%;
+  }
+
+  button{
+    @include btn-next-prev;
+    background-color: $blue;
+    color: $white;
+  }
+}

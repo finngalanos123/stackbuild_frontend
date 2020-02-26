@@ -1,1 +1,63 @@
-<p>step3 works!</p>
+<div class="steps-content" [formGroup]="companyDetailsFormGroup">
+  <h3 class="second-title">Business Information</h3>
+  <div class="third-block">
+    <div class="inputs two-blocks">
+      <div>
+        <label>Principal Business Activities</label>
+        <mat-form-field>
+          <mat-label>Select</mat-label>
+          <mat-select multiple>
+            <mat-option *ngFor="let industry of industries">
+              <span> [{{industry.key}}] </span><span> {{industry.name}} </span></mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="inputs two-blocks">
+      <div>
+        <label>Registered Office</label>
+        <input class="back-gray" placeholder="As per records" disabled>
+      </div>
+      <div>
+        <label>Constitution</label>
+        <input class="back-gray" placeholder="Use ACRA's model constitution at the time of incorporation"
+               disabled>
+      </div>
+    </div>
+
+    <h3 class="second-title">Ordinary Shares</h3>
+    <div class="inputs">
+      <div>
+        <label>Number of Shares</label>
+        <input placeholder="Type here">
+      </div>
+      <div>
+        <label>Amount of Issued Share Capital ($)</label>
+        <input placeholder="Type here">
+      </div>
+      <div>
+        <label>Currency:</label>
+        <select>
+          <option disabled selected hidden>Currency</option>
+          <option>USD</option>
+          <option>SGD</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="inputs last-block">
+      <div>
+        <label>Secretary</label>
+        <input class="back-gray" placeholder="As per records" disabled>
+      </div>
+      <div>
+        <label>Financial Year End</label>
+        <input class="back-gray" placeholder="31 12 2020" disabled>
+      </div>
+      <div>
+
+      </div>
+    </div>
+  </div>
+
+</div>

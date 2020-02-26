@@ -1,13 +1,13 @@
 <div class="register-dialog">
     <mat-dialog-actions align="end">
-        <a mat-dialog-close class="register-dialog-close">X</a>
+        <a mat-dialog-close class="register-dialog-close"> <i class="material-icons">close</i></a>
     </mat-dialog-actions>
     <h1>Invite your colleagues</h1>
     <p>
         Know a few people who you like to appoint as shareholders or directors?
     </p>
     <mat-tab-group>
-        <mat-tab label="Invite by email"> 
+        <mat-tab label="Invite by email">
             <div class="tab-content">
                 <div class="text-email">Enter the email address (comma separated)</div>
                 <input placeholder="Valid email address">
@@ -16,16 +16,17 @@
                     <option>Select role</option>
                     <option>Select role</option>
                 </select>
+              <button>INVITE</button>
             </div>
         </mat-tab>
-        <mat-tab label="Invite by link"> 
+        <mat-tab label="Invite by link">
             <div class="tab-content">
-                <div class="text-email">Invite by link</div>
+                <div class="text-email">You can share this link with your colleagues (anyone with an @gmail.com address can join)</div>
+                <input placeholder="http://testcompany12.kimbocorp.com">
+                <button class="copy-link">COPY LINK</button>
             </div>
         </mat-tab>
     </mat-tab-group>
-
-    <button>INVITE</button>
 </div>
 
 
