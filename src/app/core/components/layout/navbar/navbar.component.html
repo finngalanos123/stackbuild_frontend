@@ -6,7 +6,7 @@
     <div class="rightGroup">
       <form [formGroup]="getStartedForm">
         <div class="navbar-input">
-          <input placeholder="Add your work email">
+          <input placeholder="Add your work email" formControlName="email">
           <button (click)="sendCodeEmail()">Get started</button>
         </div>
       </form>
