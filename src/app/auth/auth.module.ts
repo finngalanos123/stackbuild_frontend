@@ -15,6 +15,8 @@ import { Step4Component } from './register/step4/step4.component';
 import { Step5Component } from './register/step5/step5.component';
 import { StepperDirectionButtonsComponent } from './register/stepper-direction-buttons/stepper-direction-buttons.component';
 import { ConfirmCodeComponent } from './confirm-code/confirm-code.component';
+import { ConfirmationCodeResponseComponent } from './confirmation-code-response/confirmation-code-response.component';
+import { UserRegistrationComponent } from './user-registration/user-registration.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { ConfirmCodeComponent } from './confirm-code/confirm-code.component';
     Step4Component,
     Step5Component,
     StepperDirectionButtonsComponent,
-    ConfirmCodeComponent
+    ConfirmCodeComponent,
+    ConfirmationCodeResponseComponent,
+    UserRegistrationComponent
   ],
   imports: [
     CommonModule,

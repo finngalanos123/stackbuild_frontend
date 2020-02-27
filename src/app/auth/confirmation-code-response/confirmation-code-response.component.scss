@@ -15,36 +15,17 @@
     margin: auto;
     margin-top: 140px;
     background: $body;
+    text-align: center;
     .test-main {
       color: #3B7097;
       font-family: Ubuntu-Bold;
-    }
-    .form-title {
-      font-size: 18px;
-      font-family: Ubuntu-Regular;
-      color: $text;
-      text-align: center;
-      line-height: 0;
-    }
-    .form-title-2 {
-      margin-bottom: 40px;
-      font-size: 18px;
-      font-family: Ubuntu-Regular;
-      color: $text;
-      text-align: center;
-    }
-    .confirm-content {
-      background: white;
-      border: 1px solid #EEEEEE;
-      padding: 40px;
-      box-sizing: border-box;
-      color: $text;
     }
     .form-email-text {
       color: $text;
       font-size: 14px;
       text-align: center;
       margin-top: 20px;
+      margin-bottom: 24px;
     }
     .resend-text {
       color: #3B7097;
@@ -61,14 +42,30 @@
     background-color: $blue;
     color: $white;
   }
-  .back-btn {
-    @include btn-next-prev;
-    background: white;
-    color: $text;
-    margin-top: 300px;
-    span {
-      margin-right: 5px;
-    }
+}
+.confirm-success {
+  .confirm-done {
+    color: $textBlue;
+    font-size: 16px;
+    text-transform: uppercase;
+    margin: 24px auto 48px;
+    text-align: center;
+  }
+  .launch-block {
+    display: flex;
+    align-items: center;
+    margin-bottom: 48px;
+  }
+  input {
+    width: 348px;
+    border-radius: 4px;
+    border: 1px solid #D0D0D0;
+    height: 40px;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    padding-left: 20px;
+    margin-right: 10px;
   }
 }
 
@@ -78,14 +75,23 @@
   }
 }
 @media(max-width: 767px) {
+  .confirm-success {
+    .launch-block {
+      flex-direction: column;
+      input {
+        margin-bottom: 20px;
+        width: 90%;
+        margin-right: 0;
+      }
+    }
+  }
   .confirm-code-container {
+    img {
+      width: 24%;
+    }
     padding: 0;
     form {
       margin-top: 100px;
-    }
-    .back-btn {
-      margin: auto;
-      margin-top: 150px;
     }
   }
 }
@@ -94,16 +100,6 @@
     form {
       max-width: 100%;
       padding: 0 20px;
-      .form-title {
-        font-size: 16px;
-        line-height: 1.4;
-      }
-      .form-title-2 {
-        font-size: 16px;
-      }
-      .confirm-content {
-        padding: 29px 16px;
-      }
     }
   }
 }
